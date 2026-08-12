@@ -6,12 +6,55 @@
   <title>কালেক্টরেট বামনদিঘি ইকো পার্ক | Collectorate Bamandighi Eco Park, Taraganj, Rangpur</title>
   <meta name="description" content="কালেক্টরেট বামনদিঘি ইকো পার্ক — রংপুরের তারাগঞ্জ উপজেলার ইকরচালীতে অবস্থিত। সাড়ে ৫ একর জুড়ে বিস্তৃত এই প্রাকৃতিক পার্কে রয়েছে বিশাল দিঘি, হাঁটার পথ, শিশু বিনোদন এলাকা ও I Love Rangpur ভাস্কর্য।" />
   <meta name="keywords" content="Bamandighi Eco Park, বামনদিঘি ইকো পার্ক, Collectorate Park Rangpur, Taraganj eco park, tourist park Rangpur, I Love Rangpur, বামনদিঘি ইকো পার্ক তারাগঞ্জ" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>" />
+
+  <!-- IMPORTANT: Replace YOUR-SITE-URL with your actual website URL -->
+  <link rel="canonical" href="https://YOUR-SITE-URL/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="bn_BD" />
+  <meta property="og:site_name" content="কালেক্টরেট বামনদিঘি ইকো পার্ক" />
+  <meta property="og:title" content="কালেক্টরেট বামনদিঘি ইকো পার্ক | Collectorate Bamandighi Eco Park, Rangpur" />
+  <meta property="og:description" content="রংপুরের তারাগঞ্জে সাড়ে ৫ একর জুড়ে বিস্তৃত প্রাকৃতিক ইকো পার্ক — ঐতিহাসিক দিঘি, হাঁটার পথ, শিশু বিনোদন এলাকা ও I Love Rangpur ভাস্কর্য। প্রবেশ সম্পূর্ণ বিনামূল্যে!" />
+  <meta property="og:url" content="https://YOUR-SITE-URL/" />
+  <meta property="og:image" content="images/park-photos/hero.jpg" />
+  <meta property="og:image:alt" content="Collectorate Bamandighi Eco Park, Taraganj, Rangpur" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="কালেক্টরেট বামনদিঘি ইকো পার্ক | Collectorate Bamandighi Eco Park" />
+  <meta name="twitter:description" content="সবুজ প্রকৃতির মাঝে হারিয়ে যান — পরিবার ও বন্ধুদের সাথে অবিস্মরণীয় স্মৃতি তৈরি করুন। প্রবেশ সম্পূর্ণ বিনামূল্যে!" />
+  <meta name="twitter:image" content="images/park-photos/hero.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    "name": "Collectorate Bamandighi Eco Park",
+    "alternateName": "কালেক্টরেট বামনদিঘি ইকো পার্ক",
+    "description": "সবুজ প্রকৃতির মাঝে বিস্তৃত সাড়ে ৫ একরের প্রাকৃতিক ইকো পার্ক। ঐতিহাসিক বামনদিঘি, টাইলস বাঁধানো হাঁটার পথ, শিশু বিনোদন এলাকা ও I Love Rangpur ভাস্কর্য সমন্বিত, তারাগঞ্জ, রংপুর।",
+    "url": "https://YOUR-SITE-URL/",
+    "image": "images/park-photos/hero.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ikarchali, Taraganj",
+      "addressRegion": "Rangpur",
+      "addressCountry": "BD"
+    },
+    "openingHours": "Mo-Su 09:00-18:00",
+    "isAccessibleForFree": true
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    try { document.documentElement.setAttribute('data-theme', localStorage.getItem('park-theme') || 'light'); } catch (e) {}
+  </script>
 </head>
 <body>
+
+  <!-- ===== SCROLL PROGRESS BAR ===== -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ===== PRELOADER ===== -->
   <div id="preloader">
@@ -36,11 +79,14 @@
         <a href="#about" class="nav-link" id="nav-about">পরিচিতি</a>
         <a href="#attractions" class="nav-link" id="nav-attractions">আকর্ষণ</a>
         <a href="#gallery" class="nav-link" id="nav-gallery">গ্যালারি</a>
-        <a href="#tickets" class="nav-link" id="nav-tickets">টিকেট</a>
+        <a href="#tickets" class="nav-link" id="nav-tickets">দর্শনার্থী</a>
         <a href="#facilities" class="nav-link" id="nav-facilities">সুবিধা</a>
         <a href="#contact" class="nav-link" id="nav-contact">যোগাযোগ</a>
       </div>
       <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+        </button>
         <button id="lang-toggle" class="lang-btn" onclick="toggleLang()">EN</button>
         <button class="hamburger" id="hamburger" onclick="toggleMenu()">
           <span></span><span></span><span></span>
@@ -59,7 +105,7 @@
     <div class="hero-content">
       <div class="hero-badge animate-fade-up">
         <span class="badge-dot"></span>
-        <span id="badge-text">প্রকৃতির স্বর্গ</span>
+        <span id="badge-text" class="typewriter-cursor">প্রকৃতির স্বর্গ</span>
       </div>
       <h1 class="hero-title animate-fade-up" id="hero-title">
         কালেক্টরেট<br/>
@@ -79,22 +125,22 @@
       </div>
       <div class="hero-stats animate-fade-up">
         <div class="stat-item">
-          <span class="stat-num">৫.৪</span>
+          <span class="stat-num" id="hstat1" data-target="5.4">৫.৪</span>
           <span class="stat-label" id="stat1">একর জমি</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num">২০২১</span>
+          <span class="stat-num" id="hstat2" data-target="2021">২০২১</span>
           <span class="stat-label" id="stat2">উদ্বোধন সাল</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num">বিনামূল্যে</span>
+          <span class="stat-num" id="hstat3">বিনামূল্যে</span>
           <span class="stat-label" id="stat3">প্রবেশ উন্মুক্ত</span>
         </div>
       </div>
     </div>
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to About section">
       <div class="scroll-dot"></div>
     </div>
   </section>
@@ -105,11 +151,10 @@
       <div class="about-grid">
         <div class="about-image-wrap">
           <div class="about-img-box">
-            <img src="images/park-photos/about.jpg" alt="About Bamandighi Eco Park" class="about-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="images/park-photos/about.jpg" alt="About Bamandighi Eco Park" class="about-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="img-placeholder-card" style="display:none;">
               <span class="ph-icon">📸</span>
               <span class="ph-text">বামনদিঘির আসল ছবি</span>
-              <small class="ph-sub">images/park-photos/about.jpg</small>
             </div>
           </div>
           <div class="about-badge-float">
@@ -216,49 +261,97 @@
       <div class="marquee-wrapper">
         <div class="marquee-track scroll-left">
           <div class="marquee-card">
-            <img src="images/park-photos/hero.jpg" alt="Eco Park View" />
-            <div class="marquee-caption">🌅 বামনদিঘি পার্কের প্রাকৃতিক দৃশ্য</div>
+            <img src="images/park-photos/hero.jpg" alt="Eco Park View" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap-hero">🌅 বামনদিঘি পার্কের প্রাকৃতিক দৃশ্য</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" />
-            <div class="marquee-caption">❤️ I Love Rangpur ভাস্কর্য</div>
+            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap1">❤️ I Love Rangpur ভাস্কর্য</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo2.jpg" alt="Historic Pond" />
-            <div class="marquee-caption">🏊 ঐতিহাসিক বামনদিঘি</div>
+            <img src="images/park-photos/photo2.jpg" alt="Historic Pond" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap2">🏊 ঐতিহাসিক বামনদিঘি</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo3.jpg" alt="Walking Path" />
-            <div class="marquee-caption">🌿 টাইলস বাঁধানো হাঁটার পথ</div>
+            <img src="images/park-photos/photo3.jpg" alt="Walking Path" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap3">🌿 টাইলস বাঁধানো হাঁটার পথ</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo4.jpg" alt="Kids Playground" />
-            <div class="marquee-caption">🎠 শিশু বিনোদন এলাকা</div>
+            <img src="images/park-photos/photo4.jpg" alt="Kids Playground" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap4">🎠 শিশু বিনোদন এলাকা</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" />
-            <div class="marquee-caption">🏡 লাল-সবুজ গেজেবো</div>
+            <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap5">🏡 লাল-সবুজ গেজেবো</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" />
-            <div class="marquee-caption">🌞 সান বাঁধানো ঘাট</div>
+            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap6">🌞 সান বাঁধানো ঘাট</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery1.jpg" alt="Bamandighi Eco Park View" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap7">🏞️ বামনদিঘি পার্কের দৃশ্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery2.jpg" alt="Green Park" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap8">🌿 পার্কের প্রাকৃতিক পরিবেশ</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery3.jpg" alt="Visitor photo" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap9">📸 দর্শনার্থীদের তোলা ছবি</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery4.jpg" alt="Evening Light" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap10">🚪 পার্কের প্রবেশমুখ</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery5.jpg" alt="Pond Reflections" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap11">🌳 পার্কের সবুজ বনানী</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery6.jpg" alt="Natural Scenery" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap12">🏞️ পার্কের মনোরম দৃশ্য</div>
           </div>
           <!-- Loop Duplication for Infinite Scroll -->
           <div class="marquee-card">
-            <img src="images/park-photos/hero.jpg" alt="Eco Park View" />
-            <div class="marquee-caption">🌅 বামনদিঘি পার্কের প্রাকৃতিক দৃশ্য</div>
+            <img src="images/park-photos/hero.jpg" alt="Eco Park View" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap-hero">🌅 বামনদিঘি পার্কের প্রাকৃতিক দৃশ্য</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" />
-            <div class="marquee-caption">❤️ I Love Rangpur ভাস্কর্য</div>
+            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap1">❤️ I Love Rangpur ভাস্কর্য</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo2.jpg" alt="Historic Pond" />
-            <div class="marquee-caption">🏊 ঐতিহাসিক বামনদিঘি</div>
+            <img src="images/park-photos/photo2.jpg" alt="Historic Pond" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap2">🏊 ঐতিহাসিক বামনদিঘি</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo3.jpg" alt="Walking Path" />
-            <div class="marquee-caption">🌿 টাইলস বাঁধানো হাঁটার পথ</div>
+            <img src="images/park-photos/photo3.jpg" alt="Walking Path" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap3">🌿 টাইলস বাঁধানো হাঁটার পথ</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery1.jpg" alt="Bamandighi Eco Park View" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap7">🏞️ বামনদিঘি পার্কের দৃশ্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery2.jpg" alt="Green Park" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap8">🌿 পার্কের প্রাকৃতিক পরিবেশ</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery3.jpg" alt="Visitor photo" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap9">📸 দর্শনার্থীদের তোলা ছবি</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery4.jpg" alt="Evening Light" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap10">🚪 পার্কের প্রবেশমুখ</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery5.jpg" alt="Pond Reflections" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap11">🌳 পার্কের সবুজ বনানী</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery6.jpg" alt="Natural Scenery" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap12">🏞️ পার্কের মনোরম দৃশ্য</div>
           </div>
         </div>
       </div>
@@ -267,41 +360,81 @@
       <div class="marquee-wrapper">
         <div class="marquee-track scroll-right">
           <div class="marquee-card">
-            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" />
-            <div class="marquee-caption">🌞 সান বাঁধানো ঘাট</div>
+            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap6">🌞 সান বাঁধানো ঘাট</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/about.jpg" alt="Park Landscape" />
-            <div class="marquee-caption">🌳 সবুজ প্রকৃতি ও বনাঞ্চল</div>
+            <img src="images/park-photos/about.jpg" alt="Park Landscape" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap-about">🌳 সবুজ প্রকৃতি ও বনাঞ্চল</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" />
-            <div class="marquee-caption">🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা</div>
+            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap-fac">🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" />
-            <div class="marquee-caption">🏡 লাল-সবুজ গেজেবো</div>
+            <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap5">🏡 লাল-সবুজ গেজেবো</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo4.jpg" alt="Kids Playground" />
-            <div class="marquee-caption">🎠 শিশু বিনোদন এলাকা</div>
+            <img src="images/park-photos/photo4.jpg" alt="Kids Playground" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap4">🎠 শিশু বিনোদন এলাকা</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" />
-            <div class="marquee-caption">❤️ I Love Rangpur ভাস্কর্য</div>
+            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap1">❤️ I Love Rangpur ভাস্কর্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery7.jpg" alt="Nature & Birds" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap13">📸 দর্শনার্থীদের স্মৃতি</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery8.jpg" alt="Park Architecture" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap14">🌿 পথ ধরে হাঁটুন</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery9.jpg" alt="Walking Trail" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap15">🚶 পিকনিকের আনন্দময় মুহূর্ত</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery10.jpg" alt="Flowers & Greenery" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap16">🌳 প্রকৃতির ছোঁয়া</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery11.jpg" alt="Evening Park Vibe" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap17">🌅 পার্কে সময় কাটান</div>
           </div>
           <!-- Loop Duplication for Infinite Scroll -->
           <div class="marquee-card">
-            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" />
-            <div class="marquee-caption">🌞 সান বাঁধানো ঘাট</div>
+            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap6">🌞 সান বাঁধানো ঘাট</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/about.jpg" alt="Park Landscape" />
-            <div class="marquee-caption">🌳 সবুজ প্রকৃতি ও বনাঞ্চল</div>
+            <img src="images/park-photos/about.jpg" alt="Park Landscape" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap-about">🌳 সবুজ প্রকৃতি ও বনাঞ্চল</div>
           </div>
           <div class="marquee-card">
-            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" />
-            <div class="marquee-caption">🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা</div>
+            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap-fac">🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery7.jpg" alt="Nature & Birds" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap13">📸 দর্শনার্থীদের স্মৃতি</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery8.jpg" alt="Park Architecture" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap14">🌿 পথ ধরে হাঁটুন</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery9.jpg" alt="Walking Trail" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap15">🚶 পিকনিকের আনন্দময় মুহূর্ত</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery10.jpg" alt="Flowers & Greenery" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap16">🌳 প্রকৃতির ছোঁয়া</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/gallery11.jpg" alt="Evening Park Vibe" loading="lazy" decoding="async" />
+            <div class="marquee-caption" data-i18n="cap17">🌅 পার্কে সময় কাটান</div>
           </div>
         </div>
       </div>
@@ -310,50 +443,86 @@
       <div class="photo-guide-box" style="margin-top: 2rem; margin-bottom: 2rem;">
         <div class="guide-icon">📍</div>
         <div class="guide-content">
-          <h4>কালেক্টরেট বামনদিঘি ইকো পার্কের দর্শনার্থীদের রিভিউ ও সরাসরি ম্যাপস লিংক</h4>
-          <p>পার্কের শত শত দর্শনার্থীদের রিভিউ, ভিডিও ও ছবি দেখতে নিচের বাটনে ক্লিক করুন:</p>
+          <h4 data-i18n="guide-title">কালেক্টরেট বামনদিঘি ইকো পার্কের দর্শনার্থীদের রিভিউ ও সরাসরি ম্যাপস লিংক</h4>
+          <p data-i18n="guide-desc">পার্কের শত শত দর্শনার্থীদের রিভিউ, ভিডিও ও ছবি দেখতে নিচের বাটনে ক্লিক করুন:</p>
           <div class="guide-links">
-            <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="btn-sm">🗺️ Google Maps Review & Photos</a>
-            <a href="https://www.facebook.com/search/top?q=bamandighi%20eco%20park" target="_blank" class="btn-sm">📘 Facebook Public Posts & Photos</a>
+            <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="btn-sm" data-i18n="guide-btn1">🗺️ Google Maps Review &amp; Photos</a>
+            <a href="https://www.facebook.com/search/top?q=bamandighi%20eco%20park" target="_blank" class="btn-sm" data-i18n="guide-btn2">📘 Facebook Public Posts &amp; Photos</a>
           </div>
         </div>
       </div>
 
       <div class="gallery-grid">
         <div class="gallery-item large" id="gitem1">
-          <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" onerror="handleMissingImg(this, '❤️ I Love Rangpur ভাস্কর্য', 'photo1.jpg')" />
+          <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" loading="lazy" decoding="async" onerror="handleMissingImg(this, '❤️ I Love Rangpur ভাস্কর্য', 'photo1.jpg')" />
           <div class="gallery-overlay">
-            <span>❤️ I Love Rangpur ভাস্কর্য</span>
+            <span data-i18n="gov1">❤️ I Love Rangpur ভাস্কর্য</span>
           </div>
         </div>
         <div class="gallery-item" id="gitem2">
-          <img src="images/park-photos/photo2.jpg" alt="Historic Pond" onerror="handleMissingImg(this, '🏊 ঐতিহাসিক বামনদিঘি', 'photo2.jpg')" />
+          <img src="images/park-photos/photo2.jpg" alt="Historic Pond" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🏊 ঐতিহাসিক বামনদিঘি', 'photo2.jpg')" />
           <div class="gallery-overlay">
-            <span>🏊 ঐতিহাসিক বামনদিঘি</span>
+            <span data-i18n="gov2">🏊 ঐতিহাসিক বামনদিঘি</span>
           </div>
         </div>
         <div class="gallery-item" id="gitem3">
-          <img src="images/park-photos/photo3.jpg" alt="Walking Path" onerror="handleMissingImg(this, '🌿 টাইলস বাঁধানো পথ', 'photo3.jpg')" />
+          <img src="images/park-photos/photo3.jpg" alt="Walking Path" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🌿 টাইলস বাঁধানো পথ', 'photo3.jpg')" />
           <div class="gallery-overlay">
-            <span>🌿 টাইলস বাঁধানো পথ</span>
+            <span data-i18n="gov3">🌿 টাইলস বাঁধানো পথ</span>
           </div>
         </div>
         <div class="gallery-item" id="gitem4">
-          <img src="images/park-photos/photo4.jpg" alt="Kids Playground" onerror="handleMissingImg(this, '🎠 শিশু বিনোদন এলাকা', 'photo4.jpg')" />
+          <img src="images/park-photos/photo4.jpg" alt="Kids Playground" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🎠 শিশু বিনোদন এলাকা', 'photo4.jpg')" />
           <div class="gallery-overlay">
-            <span>🎠 শিশু বিনোদন এলাকা</span>
+            <span data-i18n="gov4">🎠 শিশু বিনোদন এলাকা</span>
           </div>
         </div>
         <div class="gallery-item" id="gitem5">
-          <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" onerror="handleMissingImg(this, '🏡 লাল-সবুজ গেজেবো', 'photo5.jpg')" />
+          <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🏡 লাল-সবুজ গেজেবো', 'photo5.jpg')" />
           <div class="gallery-overlay">
-            <span>🏡 লাল-সবুজ গেজেবো</span>
+            <span data-i18n="gov5">🏡 লাল-সবুজ গেজেবো</span>
           </div>
         </div>
         <div class="gallery-item" id="gitem6">
-          <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" onerror="handleMissingImg(this, '🌞 সান বাঁধানো ঘাট', 'photo6.jpg')" />
+          <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🌞 সান বাঁধানো ঘাট', 'photo6.jpg')" />
           <div class="gallery-overlay">
-            <span>🌞 সান বাঁধানো ঘাট</span>
+            <span data-i18n="gov6">🌞 সান বাঁধানো ঘাট</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem7">
+          <img src="images/park-photos/gallery1.jpg" alt="Bamandighi Eco Park View" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🏞️ বামনদিঘি পার্কের দৃশ্য', 'gallery1.jpg')" />
+          <div class="gallery-overlay">
+            <span data-i18n="gov7">🏞️ বামনদিঘি পার্কের দৃশ্য</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem8">
+          <img src="images/park-photos/gallery2.jpg" alt="Green Park" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🌿 পার্কের প্রাকৃতিক পরিবেশ', 'gallery2.jpg')" />
+          <div class="gallery-overlay">
+            <span data-i18n="gov8">🌿 পার্কের প্রাকৃতিক পরিবেশ</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem9">
+          <img src="images/park-photos/gallery3.jpg" alt="Visitor photo" loading="lazy" decoding="async" onerror="handleMissingImg(this, '📸 দর্শনার্থীদের তোলা ছবি', 'gallery3.jpg')" />
+          <div class="gallery-overlay">
+            <span data-i18n="gov9">📸 দর্শনার্থীদের তোলা ছবি</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem10">
+          <img src="images/park-photos/gallery4.jpg" alt="Evening Light" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🚪 পার্কের প্রবেশমুখ', 'gallery4.jpg')" />
+          <div class="gallery-overlay">
+            <span data-i18n="gov10">🚪 পার্কের প্রবেশমুখ</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem11">
+          <img src="images/park-photos/gallery5.jpg" alt="Pond Reflections" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🌳 পার্কের সবুজ বনানী', 'gallery5.jpg')" />
+          <div class="gallery-overlay">
+            <span data-i18n="gov11">🌳 পার্কের সবুজ বনানী</span>
+          </div>
+        </div>
+        <div class="gallery-item large" id="gitem12">
+          <img src="images/park-photos/gallery6.jpg" alt="Natural Scenery" loading="lazy" decoding="async" onerror="handleMissingImg(this, '🏞️ পার্কের মনোরম দৃশ্য', 'gallery6.jpg')" />
+          <div class="gallery-overlay">
+            <span data-i18n="gov12">🏞️ পার্কের মনোরম দৃশ্য</span>
           </div>
         </div>
       </div>
@@ -365,16 +534,17 @@
     <div class="tickets-bg"></div>
     <div class="container">
       <div class="section-header">
-        <div class="section-tag light" id="tick-tag">প্রবেশ মূল্য</div>
-        <h2 class="section-title light" id="tick-title">টিকেট ও <span class="highlight-light">মূল্য তালিকা</span></h2>
-        <p class="section-desc light" id="tick-desc">সকাল ৯টা থেকে সন্ধ্যা ৬টা পর্যন্ত খোলা (শুক্রবার ও সরকারি ছুটির দিন ব্যতীত)</p>
+        <div class="section-tag light" id="tick-tag">দর্শনার্থী তথ্য</div>
+        <h2 class="section-title light" id="tick-title">দর্শনার্থীদের জন্য <span class="highlight-light">গুরুত্বপূর্ণ তথ্য</span></h2>
+        <p class="section-desc light" id="tick-desc">প্রবেশ সম্পূর্ণ বিনামূল্যে — সকাল ৯টা থেকে সন্ধ্যা ৬টা পর্যন্ত খোলা</p>
       </div>
       <div class="tickets-grid">
-        <div class="ticket-card" id="tick1">
+        <div class="ticket-card popular" id="tick1">
+          <div class="popular-badge" id="pop-badge">বিনামূল্যে</div>
           <div class="ticket-header">
             <span class="ticket-icon">🎟️</span>
             <h3 id="tick1-title">প্রবেশ মূল্য</h3>
-            <p id="tick1-sub">সকল বয়সের দর্শনার্থী</p>
+            <p id="tick1-sub">সকল বয়সের জন্য উন্মুক্ত</p>
           </div>
           <div class="ticket-price">
             <span class="price-num" style="font-size:2.5rem">বিনামূল্যে</span>
@@ -382,12 +552,11 @@
           <ul class="ticket-features">
             <li id="tf1-1">✓ সম্পূর্ণ উন্মুক্ত পার্ক</li>
             <li id="tf1-2">✓ সকল এলাকায় প্রবেশ</li>
-            <li id="tf1-3">✓ কোনো টিকেট লাগে না</li>
+            <li id="tf1-3">✓ কোনো টিকেট বা ফি লাগে না</li>
           </ul>
-          <a href="#contact" class="btn btn-ticket" id="tick1-btn">দিকনির্দেশনা দেখুন</a>
+          <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="btn btn-ticket-primary" id="tick1-btn">দিকনির্দেশনা দেখুন</a>
         </div>
-        <div class="ticket-card popular" id="tick2">
-          <div class="popular-badge" id="pop-badge">সময়সূচি</div>
+        <div class="ticket-card" id="tick2">
           <div class="ticket-header">
             <span class="ticket-icon">🕐</span>
             <h3 id="tick2-title">খোলার সময়</h3>
@@ -404,25 +573,21 @@
             <li id="tf2-3">✓ সোলার লাইট ব্যবস্থা</li>
             <li id="tf2-4">✓ সিকিউরিটি সার্বক্ষণিক</li>
           </ul>
-          <a href="#contact" class="btn btn-ticket-primary" id="tick2-btn">এখনই আসুন</a>
+          <a href="#about" class="btn btn-ticket" id="tick2-btn">আরও জানুন</a>
         </div>
         <div class="ticket-card" id="tick3">
           <div class="ticket-header">
-            <span class="ticket-icon">📍</span>
-            <h3 id="tick3-title">কীভাবে আসবেন</h3>
-            <p id="tick3-sub">রংপুর-সৈয়দপুর মহাসড়ক</p>
+            <span class="ticket-icon">🏕️</span>
+            <h3 id="tick3-title">বুকিং ও নিয়মাবলি</h3>
+            <p id="tick3-sub">পিকনিক ও অনুষ্ঠান আয়োজন</p>
           </div>
-          <div class="ticket-price" style="flex-direction:column">
-            <span class="price-num" style="font-size:2rem">~২০ কিমি</span>
-            <span style="color:rgba(255,255,255,0.6);font-size:0.85rem">রংপুর শহর থেকে</span>
-          </div>
-          <ul class="ticket-features">
-            <li id="tf3-1">✓ তারাগঞ্জ উপজেলা, রংপুর</li>
-            <li id="tf3-2">✓ ইকরচালী ইউনিয়ন</li>
-            <li id="tf3-3">✓ মহাসড়কের পাশেই অবস্থিত</li>
-            <li id="tf3-4">✓ যেকোনো যানবাহনে আসা যায়</li>
+          <ul class="ticket-features" style="margin-top:1.2rem">
+            <li id="tf3-1">✓ পিকনিক স্পট বুকিং</li>
+            <li id="tf3-2">✓ অনুষ্ঠান ও সমাবেশ</li>
+            <li id="tf3-3">✓ শৃঙ্খলা ও নিরাপত্তা</li>
+            <li id="tf3-4">✓ পার্ক পরিচ্ছন্ন রাখুন</li>
           </ul>
-          <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="btn btn-ticket" id="tick3-btn">Google Maps এ দেখুন</a>
+          <a href="#contact" class="btn btn-ticket-primary" id="tick3-btn">যোগাযোগ করুন</a>
         </div>
       </div>
       <div class="tickets-note" id="tick-note">
@@ -441,11 +606,10 @@
       <div class="facilities-content">
         <div class="facilities-image">
           <div class="fac-img-box">
-            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" class="fac-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" class="fac-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="img-placeholder-card fac-ph">
               <span class="ph-icon">🌳</span>
               <span class="ph-text">বামনদিঘির পরিবেশ ও সুযোগ-সুবিধা</span>
-              <small class="ph-sub">images/park-photos/facilities.jpg</small>
             </div>
           </div>
         </div>
@@ -591,10 +755,19 @@
     </div>
   </footer>
 
+  <!-- ===== MOBILE STICKY CTA ===== -->
+  <div id="mobile-cta" class="mobile-cta" aria-hidden="true">
+    <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" rel="noopener" class="mcta-btn" data-i18n="cta-dir">🗺️ দিকনির্দেশনা</a>
+    <a href="#contact" class="mcta-btn gold" data-i18n="cta-contact">📨 যোগাযোগ</a>
+  </div>
+
   <!-- ===== SUCCESS TOAST ===== -->
   <div class="toast" id="success-toast">
     <span>✅</span> <span id="toast-msg">বার্তা সফলভাবে পাঠানো হয়েছে!</span>
   </div>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">↑</button>
 
   <script src="script.js"></script>
 </body>

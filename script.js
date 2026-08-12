@@ -8,7 +8,7 @@ const translations = {
     'nav-about':       'পরিচিতি',
     'nav-attractions': 'আকর্ষণ',
     'nav-gallery':     'গ্যালারি',
-    'nav-tickets':     'টিকেট',
+    'nav-tickets':     'দর্শনার্থী',
     'nav-facilities':  'সুবিধা',
     'nav-contact':     'যোগাযোগ',
 
@@ -47,19 +47,65 @@ const translations = {
     /* Gallery */
     'gal-tag':   'ফটো গ্যালারি',
     'gal-title': 'পার্কের <span class="highlight">সুন্দর মুহূর্তগুলো</span>',
+    'gal-desc':  'কালেক্টরেট বামনদিঘি ইকো পার্কের দর্শনার্থীদের তোলা সুন্দর দৃশ্যসমূহ (অটো-স্ক্রলিং অ্যানিমেশন সহ)',
+
+    /* Stat numbers */
+    'hstat1': '৫.৪',
+    'hstat2': '২০২১',
+    'hstat3': 'বিনামূল্যে',
+
+    /* Gallery captions & overlays */
+    'cap-hero':  '🌅 বামনদিঘি পার্কের প্রাকৃতিক দৃশ্য',
+    'cap1':      '❤️ I Love Rangpur ভাস্কর্য',
+    'cap2':      '🏊 ঐতিহাসিক বামনদিঘি',
+    'cap3':      '🌿 টাইলস বাঁধানো হাঁটার পথ',
+    'cap4':      '🎠 শিশু বিনোদন এলাকা',
+    'cap5':      '🏡 লাল-সবুজ গেজেবো',
+    'cap6':      '🌞 সান বাঁধানো ঘাট',
+    'cap-about': '🌳 সবুজ প্রকৃতি ও বনাঞ্চল',
+    'cap-fac':   '🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা',
+    'cap7':  '🏞️ বামনদিঘি পার্কের দৃশ্য',
+    'cap8':  '🌿 পার্কের প্রাকৃতিক পরিবেশ',
+    'cap9':  '📸 দর্শনার্থীদের তোলা ছবি',
+    'cap10': '🚪 পার্কের প্রবেশমুখ',
+    'cap11': '🌳 পার্কের সবুজ বনানী',
+    'cap12': '🏞️ পার্কের মনোরম দৃশ্য',
+    'cap13': '📸 দর্শনার্থীদের স্মৃতি',
+    'cap14': '🌿 পথ ধরে হাঁটুন',
+    'cap15': '🚶 পিকনিকের আনন্দময় মুহূর্ত',
+    'cap16': '🌳 প্রকৃতির ছোঁয়া',
+    'cap17': '🌅 পার্কে সময় কাটান',
+    'gov1': '❤️ I Love Rangpur ভাস্কর্য',
+    'gov2': '🏊 ঐতিহাসিক বামনদিঘি',
+    'gov3': '🌿 টাইলস বাঁধানো পথ',
+    'gov4': '🎠 শিশু বিনোদন এলাকা',
+    'gov5': '🏡 লাল-সবুজ গেজেবো',
+    'gov6': '🌞 সান বাঁধানো ঘাট',
+    'gov7':  '🏞️ বামনদিঘি পার্কের দৃশ্য',
+    'gov8':  '🌿 পার্কের প্রাকৃতিক পরিবেশ',
+    'gov9':  '📸 দর্শনার্থীদের তোলা ছবি',
+    'gov10': '🚪 পার্কের প্রবেশমুখ',
+    'gov11': '🌳 পার্কের সবুজ বনানী',
+    'gov12': '🏞️ পার্কের মনোরম দৃশ্য',
+
+    /* Gallery guide box */
+    'guide-title': 'কালেক্টরেট বামনদিঘি ইকো পার্কের দর্শনার্থীদের রিভিউ ও সরাসরি ম্যাপস লিংক',
+    'guide-desc':  'পার্কের শত শত দর্শনার্থীদের রিভিউ, ভিডিও ও ছবি দেখতে নিচের বাটনে ক্লিক করুন:',
+    'guide-btn1':  '🗺️ Google Maps Review &amp; Photos',
+    'guide-btn2':  '📘 Facebook Public Posts &amp; Photos',
 
     /* Tickets */
-    'tick-tag':    'প্রবেশ তথ্য',
-    'tick-title':  'টিকেট ও <span class="highlight-light">সময়সূচি</span>',
-    'tick-desc':   'প্রতিদিন সকাল থেকে সন্ধ্যা পর্যন্ত উন্মুক্ত — প্রবেশ সম্পূর্ণ বিনামূল্যে',
-    'pop-badge':   'সময়সূচি',
-    'tick1-title': 'প্রবেশ মূল্য',   'tick1-sub': 'সকল বয়সের দর্শনার্থী',
+    'tick-tag':    'দর্শনার্থী তথ্য',
+    'tick-title':  'দর্শনার্থীদের জন্য <span class="highlight-light">গুরুত্বপূর্ণ তথ্য</span>',
+    'tick-desc':   'প্রবেশ সম্পূর্ণ বিনামূল্যে — সকাল ৯টা থেকে সন্ধ্যা ৬টা পর্যন্ত খোলা',
+    'pop-badge':   'বিনামূল্যে',
+    'tick1-title': 'প্রবেশ মূল্য',   'tick1-sub': 'সকল বয়সের জন্য উন্মুক্ত',
     'tick2-title': 'খোলার সময়',     'tick2-sub': 'প্রতিদিন সকাল থেকে সন্ধ্যা',
-    'tick3-title': 'কীভাবে আসবেন',  'tick3-sub': 'রংপুর-সৈয়দপুর মহাসড়ক',
-    'tf1-1': '✓ সম্পূর্ণ উন্মুক্ত পার্ক', 'tf1-2': '✓ সকল এলাকায় প্রবেশ', 'tf1-3': '✓ কোনো টিকেট লাগে না',
+    'tick3-title': 'বুকিং ও নিয়মাবলি', 'tick3-sub': 'পিকনিক ও অনুষ্ঠান আয়োজন',
+    'tf1-1': '✓ সম্পূর্ণ উন্মুক্ত পার্ক', 'tf1-2': '✓ সকল এলাকায় প্রবেশ', 'tf1-3': '✓ কোনো টিকেট বা ফি লাগে না',
     'tf2-1': '✓ প্রতিদিন খোলা', 'tf2-2': '✓ শীতকালে বিশেষ পরিবেশ', 'tf2-3': '✓ সোলার লাইট ব্যবস্থা', 'tf2-4': '✓ সিকিউরিটি সার্বক্ষণিক',
-    'tf3-1': '✓ তারাগঞ্জ উপজেলা, রংপুর', 'tf3-2': '✓ ইকরচালী ইউনিয়ন', 'tf3-3': '✓ মহাসড়কের পাশেই অবস্থিত', 'tf3-4': '✓ যেকোনো যানবাহনে আসা যায়',
-    'tick1-btn': 'দিকনির্দেশনা দেখুন', 'tick2-btn': 'এখনই আসুন', 'tick3-btn': 'Google Maps এ দেখুন',
+    'tf3-1': '✓ পিকনিক স্পট বুকিং', 'tf3-2': '✓ অনুষ্ঠান ও সমাবেশ', 'tf3-3': '✓ শৃঙ্খলা ও নিরাপত্তা', 'tf3-4': '✓ পার্ক পরিচ্ছন্ন রাখুন',
+    'tick1-btn': 'দিকনির্দেশনা দেখুন', 'tick2-btn': 'আরও জানুন', 'tick3-btn': 'যোগাযোগ করুন',
     'tick-note': '<span>📌</span> এই পার্কে প্রবেশ সম্পূর্ণ বিনামূল্যে — সবার জন্য উন্মুক্ত!',
 
     /* Facilities */
@@ -86,6 +132,10 @@ const translations = {
     /* Footer */
     'footer-copy':   '© ২০২৬ কালেক্টরেট বামনদিঘি ইকো পার্ক। সর্বস্বত্ব সংরক্ষিত।',
     'footer-slogan': '🌿 প্রকৃতির সাথে থাকুন, পরিবেশ বাঁচান 🌿',
+
+    /* Mobile CTA */
+    'cta-dir':     '🗺️ দিকনির্দেশনা',
+    'cta-contact': '📨 যোগাযোগ',
   },
   en: {
     /* Navbar */
@@ -93,7 +143,7 @@ const translations = {
     'nav-about':       'About',
     'nav-attractions': 'Attractions',
     'nav-gallery':     'Gallery',
-    'nav-tickets':     'Tickets',
+    'nav-tickets':     'Visitors',
     'nav-facilities':  'Facilities',
     'nav-contact':     'Contact',
 
@@ -132,19 +182,65 @@ const translations = {
     /* Gallery */
     'gal-tag':   'Photo Gallery',
     'gal-title': '<span class="highlight">Beautiful Moments</span> at the Park',
+    'gal-desc':  'Beautiful views of Collectorate Bamandighi Eco Park taken by visitors (with auto-scrolling animation)',
+
+    /* Stat numbers */
+    'hstat1': '5.4',
+    'hstat2': '2021',
+    'hstat3': 'Free',
+
+    /* Gallery captions & overlays */
+    'cap-hero':  '🌅 Scenic view of Bamandighi Eco Park',
+    'cap1':      '❤️ I Love Rangpur Sculpture',
+    'cap2':      '🏊 Historic Bamandighi Pond',
+    'cap3':      '🌿 Tiled Walking Path',
+    'cap4':      '🎠 Children\'s Play Area',
+    'cap5':      '🏡 Red-Green Gazebo',
+    'cap6':      '🌞 Sun-Bathing Ghat',
+    'cap-about': '🌳 Green Nature & Forest',
+    'cap-fac':   '🚶‍♂️ Environment & Walking Trail',
+    'cap7':  '🏞️ View of Bamandighi Park',
+    'cap8':  '🌿 Natural environment of the park',
+    'cap9':  '📸 Photos taken by visitors',
+    'cap10': '🚪 Park entrance gate',
+    'cap11': '🌳 Green groves of the park',
+    'cap12': '🏞️ Pleasant park view',
+    'cap13': '📸 Visitors\' memories',
+    'cap14': '🌿 Walk along the path',
+    'cap15': '🚶 Enjoyable picnic moments',
+    'cap16': '🌳 Touch of nature',
+    'cap17': '🌅 Spending time at the park',
+    'gov1': '❤️ I Love Rangpur Sculpture',
+    'gov2': '🏊 Historic Bamandighi Pond',
+    'gov3': '🌿 Tiled Walking Path',
+    'gov4': '🎠 Children\'s Play Area',
+    'gov5': '🏡 Red-Green Gazebo',
+    'gov6': '🌞 Sun-Bathing Ghat',
+    'gov7':  '🏞️ View of Bamandighi Park',
+    'gov8':  '🌿 Natural environment of the park',
+    'gov9':  '📸 Photos taken by visitors',
+    'gov10': '🚪 Park entrance gate',
+    'gov11': '🌳 Green groves of the park',
+    'gov12': '🏞️ Pleasant park view',
+
+    /* Gallery guide box */
+    'guide-title': 'Visitor Reviews & Direct Maps Links for Collectorate Bamandighi Eco Park',
+    'guide-desc':  'Click the buttons below to see hundreds of reviews, videos and photos from park visitors:',
+    'guide-btn1':  '🗺️ Google Maps Review &amp; Photos',
+    'guide-btn2':  '📘 Facebook Public Posts &amp; Photos',
 
     /* Tickets */
-    'tick-tag':    'Entry Info',
-    'tick-title':  'Tickets & <span class="highlight-light">Schedule</span>',
-    'tick-desc':   'Open daily from morning to evening — Entry is completely FREE for everyone',
-    'pop-badge':   'Schedule',
-    'tick1-title': 'Entry Price',   'tick1-sub': 'All ages welcome',
+    'tick-tag':    'Visitor Info',
+    'tick-title':  'Essential <span class="highlight-light">Visitor Information</span>',
+    'tick-desc':   'Entry is completely FREE — open daily from 9 AM to 6 PM',
+    'pop-badge':   'FREE',
+    'tick1-title': 'Entry Price',   'tick1-sub': 'Open to all ages',
     'tick2-title': 'Opening Hours',   'tick2-sub': 'Daily morning to evening',
-    'tick3-title': 'How to Get Here',  'tick3-sub': 'Rangpur-Syedpur Highway',
-    'tf1-1': '✓ Completely open park', 'tf1-2': '✓ Access to all areas', 'tf1-3': '✓ No ticket required',
+    'tick3-title': 'Booking & Rules',  'tick3-sub': 'Picnics & event arrangements',
+    'tf1-1': '✓ Completely open park', 'tf1-2': '✓ Access to all areas', 'tf1-3': '✓ No ticket or fee required',
     'tf2-1': '✓ Open every day', 'tf2-2': '✓ Special winter atmosphere', 'tf2-3': '✓ Solar lighting', 'tf2-4': '✓ Round-the-clock security',
-    'tf3-1': '✓ Taraganj Upazila, Rangpur', 'tf3-2': '✓ Ikarchali Union', 'tf3-3': '✓ Right beside the highway', 'tf3-4': '✓ Accessible by any vehicle',
-    'tick1-btn': 'Get Directions', 'tick2-btn': 'Visit Now', 'tick3-btn': 'View on Google Maps',
+    'tf3-1': '✓ Picnic spot booking', 'tf3-2': '✓ Events & gatherings', 'tf3-3': '✓ Discipline & safety', 'tf3-4': '✓ Keep the park clean',
+    'tick1-btn': 'Get Directions', 'tick2-btn': 'Learn More', 'tick3-btn': 'Contact Us',
     'tick-note': '<span>📌</span> Entry to this park is completely FREE — open for everyone!',
 
     /* Facilities */
@@ -171,27 +267,42 @@ const translations = {
     /* Footer */
     'footer-copy':   '© 2026 Collectorate Bamandighi Eco Park. All Rights Reserved.',
     'footer-slogan': '🌿 Stay with Nature, Save the Environment 🌿',
+
+    /* Mobile CTA */
+    'cta-dir':     '🗺️ Get Directions',
+    'cta-contact': '📨 Contact',
   }
 };
 
 /* =============================================
    STATE
    ============================================= */
-let currentLang = 'bn';
+let currentLang = (() => {
+  try { return localStorage.getItem('park-lang') || 'bn'; }
+  catch (_) { return 'bn'; }
+})();
 
 /* =============================================
    LANGUAGE TOGGLE
    ============================================= */
 function toggleLang() {
   currentLang = (currentLang === 'bn') ? 'en' : 'bn';
+  try { localStorage.setItem('park-lang', currentLang); } catch (_) { /* ignore */ }
   const btn = document.getElementById('lang-toggle');
   btn.textContent = (currentLang === 'bn') ? 'EN' : 'বাং';
   document.documentElement.lang = currentLang;
   applyTranslations();
+  initTypewriter();
 }
 
 function applyTranslations() {
   const t = translations[currentLang];
+
+  for (const el of document.querySelectorAll('[data-i18n]')) {
+    const key = el.getAttribute('data-i18n');
+    if (key && t[key]) el.innerHTML = t[key];
+  }
+
   for (const [id, text] of Object.entries(t)) {
     const el = document.getElementById(id);
     if (el) {
@@ -232,16 +343,20 @@ function toggleMenu() {
   hamburger.classList.toggle('active');
 }
 
-/* Navbar scroll effect */
+/* Navbar scroll effect (throttled via rAF) */
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 60) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-  updateActiveNav();
-});
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    scrollTicking = false;
+    const navbar = document.getElementById('navbar');
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    updateActiveNav();
+    scrollTopBtn.classList.toggle('show', window.scrollY > 500);
+    updateScrollUI();
+  });
+}, { passive: true });
 
 /* Active nav link on scroll */
 function updateActiveNav() {
@@ -274,6 +389,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     const preloader = document.getElementById('preloader');
     preloader.classList.add('hidden');
+    initTypewriter();
   }, 1200);
 });
 
@@ -281,6 +397,7 @@ window.addEventListener('load', () => {
    PARTICLES
    ============================================= */
 function createParticles() {
+  if (reducedMotion) return;
   const container = document.getElementById('particles');
   const emojis = ['🌿', '🍃', '🌺', '🦋', '🌸', '🍀', '🌻'];
   for (let i = 0; i < 18; i++) {
@@ -301,16 +418,18 @@ function createParticles() {
    ============================================= */
 function initReveal() {
   const elements = document.querySelectorAll(
-    '.about-grid, .attraction-card, .gallery-item, .ticket-card, .facility-item, .contact-item, .contact-form-wrap'
+    '.section-header, .about-grid, .about-image-wrap, .about-content, .attraction-card, .gallery-item, .ticket-card, .facility-item, .facilities-image, .facilities-grid, .contact-item, .contact-form-wrap'
   );
   elements.forEach(el => el.classList.add('reveal'));
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
+        const customDelay = (entry.target.dataset && entry.target.dataset.revealDelay) || null;
+        const delay = customDelay !== null ? Number(customDelay) : Math.min(i * 70, 600);
         setTimeout(() => {
           entry.target.classList.add('visible');
-        }, i * 80);
+        }, delay);
         observer.unobserve(entry.target);
       }
     });
@@ -324,6 +443,26 @@ function initReveal() {
    ============================================= */
 function handleFormSubmit(e) {
   e.preventDefault();
+  const name    = document.getElementById('form-name').value.trim();
+  const phone   = document.getElementById('form-phone').value.trim();
+  const email   = document.getElementById('form-email').value.trim();
+  const subject = document.getElementById('form-subject').value ||
+                  document.getElementById('form-subject').options[0].textContent;
+  const message = document.getElementById('form-message').value.trim();
+
+  const subjectLine = `[Bamandighi Eco Park] ${subject}`;
+  const body =
+    `Name:    ${name}\n` +
+    `Phone:   ${phone}\n` +
+    `Email:   ${email}\n` +
+    `Subject: ${subject}\n\n` +
+    `${message}`;
+
+  window.location.href =
+    `mailto:info@bamandighiecopark.com` +
+    `?subject=${encodeURIComponent(subjectLine)}` +
+    `&body=${encodeURIComponent(body)}`;
+
   const btn = document.getElementById('form-submit');
   btn.disabled = true;
   btn.style.opacity = '0.7';
@@ -358,37 +497,60 @@ function initGallery() {
 
 function openLightbox(src, alt) {
   const lb = document.createElement('div');
-  lb.style.cssText = `
-    position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;
-    display:flex;align-items:center;justify-content:center;cursor:pointer;
-    backdrop-filter:blur(8px);
-  `;
+  lb.className = 'lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', alt || 'Image preview');
   lb.innerHTML = `
-    <img src="${src}" alt="${alt}" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.5);object-fit:contain;" />
-    <button style="position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:white;font-size:1.5rem;width:44px;height:44px;border-radius:50%;cursor:pointer;">✕</button>
+    <img src="${src}" alt="${alt || ''}" />
+    <button class="lb-close" aria-label="Close">✕</button>
   `;
-  lb.addEventListener('click', () => lb.remove());
+  const close = () => lb.remove();
+  lb.addEventListener('click', close);
+  lb.querySelector('.lb-close').addEventListener('click', e => { e.stopPropagation(); close(); });
+  const onKey = e => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onKey); } };
+  document.addEventListener('keydown', onKey);
   document.body.appendChild(lb);
-  document.addEventListener('keydown', function esc(e) {
-    if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', esc); }
-  });
+  lb.querySelector('.lb-close').focus();
 }
 
 /* =============================================
    COUNTER ANIMATION
    ============================================= */
+const BN_DIGITS = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+
+function toLocalDigits(numStr) {
+  if (currentLang !== 'bn') return numStr;
+  return String(numStr).replace(/[0-9]/g, d => BN_DIGITS[Number(d)]);
+}
+
 function animateCounters() {
-  const counters = document.querySelectorAll('.stat-num');
+  const counters = document.querySelectorAll('.stat-num[data-target]');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el = entry.target;
-        const text = el.textContent;
-        observer.unobserve(el);
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.4 });
   counters.forEach(el => observer.observe(el));
+}
+
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const decimals = el.dataset.target.includes('.') ? 1 : 0;
+  const duration = 1500;
+  const start = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = toLocalDigits((target * eased).toFixed(decimals));
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = toLocalDigits(target.toFixed(decimals));
+  }
+  requestAnimationFrame(tick);
 }
 
 /* =============================================
@@ -397,23 +559,158 @@ function animateCounters() {
 function handleMissingImg(imgEl, titleText, fileName) {
   const container = imgEl.parentElement;
   imgEl.style.display = 'none';
-  
+
   const placeholder = document.createElement('div');
   placeholder.className = 'img-placeholder-card gallery-ph';
   placeholder.innerHTML = `
     <span class="ph-icon">📸</span>
     <span class="ph-title">${titleText}</span>
-    <span class="ph-sub">images/park-photos/${fileName}</span>
   `;
   container.appendChild(placeholder);
 }
 
 /* =============================================
+   SCROLL TO TOP
+   ============================================= */
+const scrollTopBtn = document.getElementById('scroll-top');
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+});
+
+/* =============================================
    INIT
    ============================================= */
 document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('lang-toggle');
+  btn.textContent = (currentLang === 'bn') ? 'EN' : 'বাং';
+  document.documentElement.lang = currentLang;
+  applyTheme(currentTheme);
+  applyTranslations();
   createParticles();
   initReveal();
   initGallery();
   animateCounters();
+  setupBlurUp();
+  setupMarqueeA11y();
+  setupScrollIndicator();
+});
+
+/* =============================================
+   PREMIUM ENHANCEMENTS (v2)
+   ============================================= */
+const reducedMotionQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+let reducedMotion = reducedMotionQ.matches;
+reducedMotionQ.addEventListener('change', e => { reducedMotion = e.matches; });
+
+/* --- DARK MODE --- */
+let currentTheme = (() => {
+  try { return localStorage.getItem('park-theme') || 'light'; } catch (_) { return 'light'; }
+})();
+
+function applyTheme(t) {
+  currentTheme = t;
+  document.documentElement.setAttribute('data-theme', t);
+  try { localStorage.setItem('park-theme', t); } catch (_) { /* ignore */ }
+  const icon = document.querySelector('#theme-toggle .theme-icon');
+  if (icon) icon.textContent = t === 'dark' ? '☀️' : '🌙';
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.setAttribute('aria-pressed', String(t === 'dark'));
+}
+
+function toggleTheme() { applyTheme(currentTheme === 'light' ? 'dark' : 'light'); }
+
+/* --- TYPEWRITER EFFECT --- */
+let typeTimer = null;
+function initTypewriter() {
+  clearTimeout(typeTimer);
+  const el = document.getElementById('badge-text');
+  if (!el || reducedMotion) return;
+  const full = el.textContent.trim();
+  if (!full) return;
+  el.classList.add('typewriter-cursor');
+  el.textContent = '';
+  let i = 0;
+  (function type() {
+    el.textContent = full.slice(0, ++i);
+    if (i < full.length) typeTimer = setTimeout(type, 60);
+  })();
+}
+
+/* --- IMAGE BLUR-UP --- */
+function setupBlurUp() {
+  document.querySelectorAll('.gallery-item img, .marquee-card img, .about-img, .fac-img').forEach(img => {
+    const done = () => img.classList.add('img-fade');
+    if (img.complete && img.naturalWidth > 0) done();
+    else img.addEventListener('load', done, { once: true });
+  });
+}
+
+/* --- BUTTON RIPPLE (delegated) --- */
+document.addEventListener('pointerdown', (e) => {
+  if (reducedMotion) return;
+  const btn = e.target.closest('.btn');
+  if (!btn) return;
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height) * 2;
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+  btn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 650);
+});
+
+/* --- SCROLL UI: progress bar, parallax, mobile sticky CTA --- */
+const scrollProgressEl = document.getElementById('scroll-progress');
+const mobileCtaEl = document.getElementById('mobile-cta');
+const heroBgImg = document.getElementById('hero-bg-img');
+const footerEl = document.querySelector('.footer');
+
+function updateScrollUI() {
+  const st = window.scrollY;
+  const dh = document.documentElement.scrollHeight - window.innerHeight;
+  if (scrollProgressEl) scrollProgressEl.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+
+  if (heroBgImg && heroBgImg.style.display !== 'none' && !reducedMotion && st < window.innerHeight * 1.1) {
+    heroBgImg.style.setProperty('--py', (st * 0.25) + 'px');
+  }
+
+  if (mobileCtaEl) {
+    const footerRect = footerEl ? footerEl.getBoundingClientRect() : null;
+    const overlappingFooter = footerRect && footerRect.top < window.innerHeight;
+    mobileCtaEl.classList.toggle('show', st > window.innerHeight * 0.8 && !overlappingFooter);
+  }
+}
+
+/* --- SCROLL INDICATOR (hero → about) --- */
+function setupScrollIndicator() {
+  const si = document.querySelector('.scroll-indicator');
+  if (!si) return;
+  si.addEventListener('click', () => {
+    const about = document.getElementById('about');
+    if (about) about.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+  si.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); si.click(); }
+  });
+}
+
+/* --- MARQUEE KEYBOARD ACCESSIBILITY --- */
+function setupMarqueeA11y() {
+  document.querySelectorAll('.marquee-card').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+  });
+}
+
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('nav-menu');
+  if (menu.classList.contains('open') &&
+      !menu.contains(e.target) &&
+      !document.getElementById('hamburger').contains(e.target)) {
+    menu.classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+  }
 });

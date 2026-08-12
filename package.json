@@ -1,0 +1,13 @@
+{
+  "name": "collectorate-bamandighi-eco-park",
+  "version": "1.0.0",
+  "description": "Collectorate Bamandighi Eco Park promotional website",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l 3000",
+    "dev": "serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
