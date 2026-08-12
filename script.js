@@ -471,45 +471,50 @@ async function handleFormSubmit(e) {
   btn.innerHTML = '<span>⏳</span> <span>পাঠানো হচ্ছে...</span>';
 
   try {
-    const response = await fetch('http://localhost:5000/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    // Use Firebase if available
+    if (window.firebaseAddContact) {
+      const result = await window.firebaseAddContact({
         name,
         phone,
         email,
         subject,
         message
-      })
-    });
+      });
 
-    const result = await response.json();
-
-    if (result.success) {
-      // Success
-      document.getElementById('contact-form').reset();
-      showToast(result.message || 'বার্তা সফলভাবে পাঠানো হয়েছে!');
+      if (result.success) {
+        document.getElementById('contact-form').reset();
+        showToast(result.message || 'বার্তা সফলভাবে পাঠানো হয়েছে! ✅');
+      } else {
+        alert(result.message || 'বার্তা পাঠাতে ব্যর্থ হয়েছে');
+      }
     } else {
-      // Error from server
-      alert(result.message || 'বার্তা পাঠাতে ব্যর্থ হয়েছে');
+      // Fallback to Express backend if Firebase not available
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          subject,
+          message
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        document.getElementById('contact-form').reset();
+        showToast(result.message || 'বার্তা সফলভাবে পাঠানো হয়েছে!');
+      } else {
+        alert(result.message || 'বার্তা পাঠাতে ব্যর্থ হয়েছে');
+      }
     }
   } catch (error) {
     console.error('Error submitting form:', error);
-    // Fallback to mailto if API fails
-    const subjectLine = `[Bamandighi Eco Park] ${subject}`;
-    const body =
-      `Name:    ${name}\n` +
-      `Phone:   ${phone}\n` +
-      `Email:   ${email}\n` +
-      `Subject: ${subject}\n\n` +
-      `${message}`;
-
-    window.location.href =
-      `mailto:info@bamandighiecopark.com` +
-      `?subject=${encodeURIComponent(subjectLine)}` +
-      `&body=${encodeURIComponent(body)}`;
+    alert('বার্তা পাঠাতে ব্যর্থ: ' + error.message);
   } finally {
     btn.disabled = false;
     btn.style.opacity = '1';
