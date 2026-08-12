@@ -87,6 +87,10 @@ const translations = {
     'gov10': '🚪 পার্কের প্রবেশমুখ',
     'gov11': '🌳 পার্কের সবুজ বনানী',
     'gov12': '🏞️ পার্কের মনোরম দৃশ্য',
+    'gov13': '📸 দর্শনার্থীদের স্মৃতি',
+    'gov14': '🌿 পথ ধরে হাঁটুন',
+    'gov15': '🌳 প্রকৃতির ছোঁয়া',
+    'gov16': '🌅 পার্কে সময় কাটান',
 
     /* Gallery guide box */
     'guide-title': 'কালেক্টরেট বামনদিঘি ইকো পার্কের দর্শনার্থীদের রিভিউ ও সরাসরি ম্যাপস লিংক',
@@ -222,6 +226,10 @@ const translations = {
     'gov10': '🚪 Park entrance gate',
     'gov11': '🌳 Green groves of the park',
     'gov12': '🏞️ Pleasant park view',
+    'gov13': '📸 Visitors\' memories',
+    'gov14': '🌿 Walk along the path',
+    'gov15': '🌳 Touch of nature',
+    'gov16': '🌅 Spending time at the park',
 
     /* Gallery guide box */
     'guide-title': 'Visitor Reviews & Direct Maps Links for Collectorate Bamandighi Eco Park',
