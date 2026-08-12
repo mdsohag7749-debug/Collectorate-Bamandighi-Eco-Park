@@ -449,8 +449,9 @@ function initReveal() {
 /* =============================================
    FORM SUBMISSION
    ============================================= */
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
+  
   const name    = document.getElementById('form-name').value.trim();
   const phone   = document.getElementById('form-phone').value.trim();
   const email   = document.getElementById('form-email').value.trim();
@@ -458,33 +459,70 @@ function handleFormSubmit(e) {
                   document.getElementById('form-subject').options[0].textContent;
   const message = document.getElementById('form-message').value.trim();
 
-  const subjectLine = `[Bamandighi Eco Park] ${subject}`;
-  const body =
-    `Name:    ${name}\n` +
-    `Phone:   ${phone}\n` +
-    `Email:   ${email}\n` +
-    `Subject: ${subject}\n\n` +
-    `${message}`;
-
-  window.location.href =
-    `mailto:info@bamandighiecopark.com` +
-    `?subject=${encodeURIComponent(subjectLine)}` +
-    `&body=${encodeURIComponent(body)}`;
+  // Validation
+  if (!name || !message) {
+    alert('নাম এবং বার্তা আবশ্যক!');
+    return;
+  }
 
   const btn = document.getElementById('form-submit');
   btn.disabled = true;
   btn.style.opacity = '0.7';
+  btn.innerHTML = '<span>⏳</span> <span>পাঠানো হচ্ছে...</span>';
 
-  setTimeout(() => {
+  try {
+    const response = await fetch('http://localhost:5000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        subject,
+        message
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Success
+      document.getElementById('contact-form').reset();
+      showToast(result.message || 'বার্তা সফলভাবে পাঠানো হয়েছে!');
+    } else {
+      // Error from server
+      alert(result.message || 'বার্তা পাঠাতে ব্যর্থ হয়েছে');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    // Fallback to mailto if API fails
+    const subjectLine = `[Bamandighi Eco Park] ${subject}`;
+    const body =
+      `Name:    ${name}\n` +
+      `Phone:   ${phone}\n` +
+      `Email:   ${email}\n` +
+      `Subject: ${subject}\n\n` +
+      `${message}`;
+
+    window.location.href =
+      `mailto:info@bamandighiecopark.com` +
+      `?subject=${encodeURIComponent(subjectLine)}` +
+      `&body=${encodeURIComponent(body)}`;
+  } finally {
     btn.disabled = false;
     btn.style.opacity = '1';
-    document.getElementById('contact-form').reset();
-    showToast();
-  }, 1200);
+    btn.innerHTML = '<span>📨</span> <span id="submit-text">বার্তা পাঠান</span>';
+  }
 }
 
-function showToast() {
+function showToast(message) {
   const toast = document.getElementById('success-toast');
+  const msgEl = document.getElementById('toast-msg');
+  if (message) {
+    msgEl.textContent = message;
+  }
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 4000);
 }

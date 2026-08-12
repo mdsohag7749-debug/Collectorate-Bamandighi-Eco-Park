@@ -1,13 +1,23 @@
 {
   "name": "collectorate-bamandighi-eco-park",
   "version": "1.0.0",
-  "description": "Collectorate Bamandighi Eco Park promotional website",
+  "description": "Collectorate Bamandighi Eco Park promotional website with contact management & AR",
   "private": true,
   "scripts": {
     "start": "serve . -l 3000",
-    "dev": "serve . -l 3000"
+    "dev": "serve . -l 3000",
+    "server": "node server-backend.js",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev\""
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "serve": "^14.2.4"
+  },
+  "dependencies": {
+    "ar.js": "^2.2.2",
+    "body-parser": "^2.3.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "three": "^0.185.1"
   }
 }

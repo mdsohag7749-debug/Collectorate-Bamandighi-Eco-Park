@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR মার্কার ডাউনলোড | Bamandighi Eco Park</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a2e0a 0%, #1a6b2f 100%);
+      color: #333;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      color: #0a2e0a;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .marker-container {
+      background: #f5f5f5;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .marker-image {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 1rem;
+      border: 3px solid #0a2e0a;
+      border-radius: 8px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 150px;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1a6b2f, #2d8a4e);
+      color: white;
+      box-shadow: 0 4px 15px rgba(26, 107, 47, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26, 107, 47, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(26, 107, 47, 0.1);
+      color: #0a2e0a;
+      border: 2px solid #1a6b2f;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(26, 107, 47, 0.2);
+    }
+
+    .steps {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 5px solid #1a6b2f;
+    }
+
+    .step {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #1a6b2f, #2d8a4e);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      color: #0a2e0a;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-content p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, rgba(26, 107, 47, 0.1), rgba(212, 168, 67, 0.1));
+      border-left: 4px solid #d4a843;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong {
+      color: #0a2e0a;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      border-top: 3px solid #1a6b2f;
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card h3 {
+      color: #0a2e0a;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🌳 AR অভিজ্ঞতা</h1>
+      <p>বামনদিঘি ইকো পার্কের অগমেন্টেড রিয়েলিটি ভিউয়ার</p>
+    </div>
+
+    <!-- Main Info Card -->
+    <div class="card">
+      <h2>📱 AR ভিউয়ার সম্পর্কে</h2>
+      <p>
+        আমাদের AR ভিউয়ার দিয়ে বাস্তব পরিবেশে বামনদিঘি ইকো পার্ক ৩D মডেল দেখুন। আপনার স্মার্টফোনের ক্যামেরা ব্যবহার করে বাস্তবের সাথে ডিজিটাল কন্টেন্ট একসাথে দেখার অভিজ্ঞতা পান।
+      </p>
+
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>ইন্টারঅ্যাক্টিভ মডেল</h3>
+          <p>পার্কের ৩D মডেল AR এ দেখুন</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>মার্কার-ভিত্তিক</h3>
+          <p>মার্কার স্ক্যান করে AR সক্রিয় করুন</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>তথ্যপূর্ণ</h3>
+          <p>প্রতিটি স্থান সম্পর্কে বিস্তারিত জানুন</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marker Section -->
+    <div class="card">
+      <h2>🎨 AR মার্কার</h2>
+      <p>এই মার্কার ইমেজটি প্রিন্ট করুন বা আপনার স্ক্রিনে রাখুন। তারপর AR ভিউয়ার খুলে আপনার ক্যামেরা দিয়ে মার্কারের দিকে তাকান।</p>
+
+      <div class="marker-container">
+        <canvas id="markerCanvas" style="border: 3px solid #0a2e0a; border-radius: 8px;"></canvas>
+        <div style="margin-top: 1rem;">
+          <small style="color: #666;">এই মার্কার ইমেজটি ডাউনলোড বা প্রিন্ট করুন</small>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="downloadMarker()">
+          ⬇️ মার্কার ডাউনলোড করুন
+        </button>
+        <button class="btn btn-secondary" onclick="printMarker()">
+          🖨️ মার্কার প্রিন্ট করুন
+        </button>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="card">
+      <h2>📖 কীভাবে ব্যবহার করবেন</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>মার্কার প্রস্তুত করুন</h3>
+            <p>উপরের মার্কার ইমেজটি প্রিন্ট করুন A4 কাগজে বা আপনার ট্যাবলেটে প্রদর্শন করুন।</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>ক্যামেরা অনুমতি দিন</h3>
+            <p>AR ভিউয়ার খুলুন এবং ক্যামেরা অ্যাক্সেসের জন্য অনুমতি দিন।</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>মার্কার স্ক্যান করুন</h3>
+            <p>আপনার স্মার্টফোনের ক্যামেরাকে মার্কারের দিকে নির্দেশ করুন।</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>AR অভিজ্ঞতা উপভোগ করুন</h3>
+            <p>পার্কের ৩D মডেল দেখুন এবং তথ্য সংগ্রহ করুন।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Requirements -->
+    <div class="card">
+      <h2>✅ সিস্টেম প্রয়োজনীয়তা</h2>
+
+      <div class="info-box">
+        <strong>✓ ওয়েবক্যাম বা মোবাইল ক্যামেরা সহ ডিভাইস</strong>
+        <p style="margin-top: 0.5rem; color: #666;">ল্যাপটপ, ট্যাবলেট বা স্মার্টফোন ব্যবহার করুন</p>
+      </div>
+
+      <div class="info-box">
+        <strong>✓ আধুনিক ওয়েব ব্রাউজার</strong>
+        <p style="margin-top: 0.5rem; color: #666;">Chrome, Firefox, Safari বা Edge (সর্বশেষ সংস্করণ)</p>
+      </div>
+
+      <div class="info-box">
+        <strong>✓ ইন্টারনেট সংযোগ</strong>
+        <p style="margin-top: 0.5rem; color: #666;">AR লাইব্রেরি লোড করার জন্য অপরিহার্য</p>
+      </div>
+
+      <div class="btn-group">
+        <a href="ar-viewer.html" class="btn btn-primary">
+          🚀 AR ভিউয়ার খুলুন
+        </a>
+        <a href="index.html" class="btn btn-secondary">
+          ← মূল পৃষ্ঠায় ফিরুন
+        </a>
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="card">
+      <h2>💡 দরকারী টিপস</h2>
+      <ul style="padding-left: 1.5rem; color: #555; line-height: 2;">
+        <li>ভাল আলোতে AR ব্যবহার করুন</li>
+        <li>মার্কারটি সাদা পটভূমিতে রাখুন</li>
+        <li>ক্যামেরাটি মার্কার থেকে ১৫-৩০ সেমি দূরে রাখুন</li>
+        <li>মার্কারটি সরাসরি ক্যামেরার সামনে রাখুন</li>
+        <li>ফোনের ভলিউম চেক করুন (যদি অডিও সহ হয়)</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Generate marker canvas
+    function generateMarker() {
+      const canvas = document.getElementById('markerCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = 300;
+      canvas.height = 300;
+
+      // White background
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, 300, 300);
+
+      // Outer border
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(15, 15, 270, 270);
+
+      // Inner squares
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(45, 45, 210, 210);
+
+      // White center
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(60, 60, 180, 180);
+
+      // Create pattern
+      ctx.fillStyle = '#000000';
+      for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+          if ((i + j) % 2 === 0) {
+            ctx.fillRect(60 + i * 22.5, 60 + j * 22.5, 22.5, 22.5);
+          }
+        }
+      }
+
+      // Add center logo
+      ctx.fillStyle = '#1a6b2f';
+      ctx.fillRect(120, 120, 60, 60);
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'Bold 30px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('AR', 150, 150);
+    }
+
+    // Download marker
+    function downloadMarker() {
+      const canvas = document.getElementById('markerCanvas');
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'bamandighi-ar-marker.png';
+      link.click();
+    }
+
+    // Print marker
+    function printMarker() {
+      const canvas = document.getElementById('markerCanvas');
+      const printWindow = window.open('', '', 'width=600,height=600');
+      printWindow.document.write(
+        '<html><head><title>AR মার্কার প্রিন্ট করুন</title></head><body style="text-align:center; padding: 20px;">'
+      );
+      printWindow.document.write(
+        '<h2 style="color: #0a2e0a;">বামনদিঘি ইকো পার্ক - AR মার্কার</h2>'
+      );
+      printWindow.document.write('<img src="' + canvas.toDataURL() + '" style="max-width: 80%; border: 2px solid #000;"/>');
+      printWindow.document.write('<p style="margin-top: 20px; font-size: 12px;">এই মার্কারটি AR ভিউয়ারে ব্যবহার করুন</p>');
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      setTimeout(() => printWindow.print(), 500);
+    }
+
+    // Generate marker on page load
+    window.addEventListener('load', generateMarker);
+  </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>AR পার্ক ভিউয়ার | Bamandighi Eco Park AR Viewer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #ar-container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    .ar-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 46, 10, 0.9);
+      color: white;
+      padding: 1rem;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .ar-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .ar-subtitle {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .ar-controls {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .ar-btn {
+      background: linear-gradient(135deg, #1a6b2f, #2d8a4e);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(26, 107, 47, 0.3);
+    }
+
+    .ar-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26, 107, 47, 0.5);
+    }
+
+    .ar-btn.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .ar-info {
+      position: fixed;
+      top: 5rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 300px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      z-index: 50;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .ar-info h3 {
+      color: #0a2e0a;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .ar-info p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .ar-info-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 200;
+    }
+
+    .spinner {
+      border: 4px solid rgba(212, 168, 67, 0.2);
+      border-top: 4px solid #d4a843;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .instruction-overlay {
+      position: fixed;
+      bottom: 5rem;
+      left: 1rem;
+      background: rgba(10, 46, 10, 0.9);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 250px;
+      font-size: 0.85rem;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .close-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+  <div id="ar-container">
+    <!-- AR Scene will be loaded here -->
+  </div>
+
+  <!-- Header -->
+  <div class="ar-header">
+    <div>
+      <div class="ar-title">🌳 বামনদিঘি ইকো পার্ক</div>
+      <div class="ar-subtitle">Bamandighi Eco Park - AR Viewer</div>
+    </div>
+    <div style="font-size: 1rem;">📱 AR সক্রিয়</div>
+  </div>
+
+  <!-- Close Button -->
+  <button class="close-btn" onclick="window.history.back()">✕</button>
+
+  <!-- Instructions -->
+  <div class="instruction-overlay" id="instructions">
+    <strong>🎯 নির্দেশনা:</strong>
+    <p style="margin-top: 0.5rem;">আপনার ক্যামেরাকে মার্কার ইমেজের দিকে ঘুরান এবং পার্ক AR এ দেখুন!</p>
+  </div>
+
+  <!-- Info Panel -->
+  <div class="ar-info" id="ar-info" style="display: none;">
+    <button class="ar-info-close" onclick="document.getElementById('ar-info').style.display='none'">✕</button>
+    <h3 id="info-title">বামনদিঘি দিঘি</h3>
+    <p id="info-description">ঐতিহাসিক বামনদিঘি পার্কের কেন্দ্রবিন্দু। টাইলস বাঁধানো হাঁটার পথ দিঘির চারপাশ ঘিরে রয়েছে।</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="ar-controls">
+    <button class="ar-btn" onclick="toggleInfo()">ℹ️ তথ্য</button>
+    <button class="ar-btn secondary" onclick="toggleInstructions()">? সাহায্য</button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner" id="loader">
+    <div class="spinner"></div>
+    <p>AR লোড হচ্ছে...</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/three.js/ar.js"></script>
+  <script src="ar-script.js"></script>
+</body>
+</html>

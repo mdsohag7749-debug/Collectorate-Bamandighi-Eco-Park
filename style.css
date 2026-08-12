@@ -1926,4 +1926,56 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   body { animation: none !important; }
 }
 
+/* ===== AR EXPERIENCE SECTION ===== */
+.ar-experience-section {
+  background: linear-gradient(135deg, #f5faf8, #eef6f2);
+  padding: 4rem 0;
+}
+
+.ar-experience-section .section-header {
+  margin-bottom: 3rem;
+}
+
+.ar-experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.ar-experience-content h3 {
+  background: linear-gradient(135deg, var(--green-primary), var(--green-mid));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ar-experience-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-experience-visual > div {
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .ar-experience-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ar-experience-visual > div {
+    animation: none;
+  }
+}
+
 
