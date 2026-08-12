@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>কালেক্টরেট বামনডিহি ইকো পার্ক | Collectorate Bamandighi Eco Park, Taraganj, Rangpur</title>
+  <meta name="description" content="কালেক্টরেট বামনডিহি ইকো পার্ক — রংপুরের তারাগঞ্জ উপজেলার ইকরচালীতে অবস্থিত। সাড়ে ৫ একর জুড়ে বিস্তৃত এই প্রাকৃতিক পার্কে রয়েছে বিশাল দিঘি, হাঁটার পথ, শিশু বিনোদন এলাকা ও I Love Rangpur ভাস্কর্য।" />
+  <meta name="keywords" content="Bamandighi Eco Park, বামনদীঘি ইকো পার্ক, Collectorate Park Rangpur, Taraganj eco park, tourist park Rangpur, I Love Rangpur, বামনদীঘি ইকো পার্ক তারাগঞ্জ" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="leaf-spinner">🌿</div>
+      <p>লোড হচ্ছে...</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">🌳</span>
+        <div class="logo-text">
+          <span class="logo-bn">বামনডিহি ইকো পার্ক</span>
+          <span class="logo-en">Bamandighi Eco Park</span>
+        </div>
+      </a>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active" id="nav-home">হোম</a>
+        <a href="#about" class="nav-link" id="nav-about">পরিচিতি</a>
+        <a href="#attractions" class="nav-link" id="nav-attractions">আকর্ষণ</a>
+        <a href="#gallery" class="nav-link" id="nav-gallery">গ্যালারি</a>
+        <a href="#tickets" class="nav-link" id="nav-tickets">টিকেট</a>
+        <a href="#facilities" class="nav-link" id="nav-facilities">সুবিধা</a>
+        <a href="#contact" class="nav-link" id="nav-contact">যোগাযোগ</a>
+      </div>
+      <div class="nav-actions">
+        <button id="lang-toggle" class="lang-btn" onclick="toggleLang()">EN</button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <img src="images/park-photos/hero.jpg" alt="Bamandighi Eco Park" class="hero-img" id="hero-bg-img" onerror="this.style.display='none'" />
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" id="particles"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-up">
+        <span class="badge-dot"></span>
+        <span id="badge-text">প্রকৃতির স্বর্গ</span>
+      </div>
+      <h1 class="hero-title animate-fade-up" id="hero-title">
+        কালেক্টরেট<br/>
+        <span class="gradient-text">বামনডিহি ইকো পার্ক</span>
+      </h1>
+      <p class="hero-subtitle animate-fade-up" id="hero-subtitle">
+        সবুজ প্রকৃতির মাঝে হারিয়ে যান — পরিবার ও বন্ধুদের সাথে<br/>
+        অবিস্মরণীয় স্মৃতি তৈরি করুন
+      </p>
+      <div class="hero-buttons animate-fade-up">
+        <a href="#tickets" class="btn btn-primary" id="hero-btn1">
+          <span>🎟️</span> <span id="hbtn1-text">টিকেট কিনুন</span>
+        </a>
+        <a href="#about" class="btn btn-outline" id="hero-btn2">
+          <span id="hbtn2-text">আরও জানুন</span> <span>→</span>
+        </a>
+      </div>
+      <div class="hero-stats animate-fade-up">
+        <div class="stat-item">
+          <span class="stat-num">৫.৪</span>
+          <span class="stat-label" id="stat1">একর জমি</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">২০২১</span>
+          <span class="stat-label" id="stat2">উদ্বোধন সাল</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">বিনামূল্যে</span>
+          <span class="stat-label" id="stat3">প্রবেশ উন্মুক্ত</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <div class="about-img-box">
+            <img src="images/park-photos/about.jpg" alt="About Bamandighi Eco Park" class="about-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="img-placeholder-card" style="display:none;">
+              <span class="ph-icon">📸</span>
+              <span class="ph-text">বামনদীঘির আসল ছবি</span>
+              <small class="ph-sub">images/park-photos/about.jpg</small>
+            </div>
+          </div>
+          <div class="about-badge-float">
+            <span class="badge-icon">🌿</span>
+            <div>
+              <strong id="est-label">উদ্বোধন</strong>
+              <span>২০২১</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag" id="about-tag">আমাদের সম্পর্কে</div>
+          <h2 class="section-title" id="about-title">
+            জঙ্গল থেকে গড়ে ওঠা<br/><span class="highlight">স্বপ্নের ইকো পার্ক</span>
+          </h2>
+          <p class="about-text" id="about-p1">
+            রংপুর জেলার তারাগঞ্জ উপজেলার ইকরচালী ইউনিয়নে রংপুর-সৈয়দপুর মহাসড়কের পাশে অবস্থিত কালেক্টরেট বামনডিহি ইকো পার্ক। একসময় এই স্থানটি জঙ্গল ও ময়লা-আবর্জনায় ভরা ছিল। ২০২০ সালে জেলা প্রশাসক ও উপজেলা নির্বাহী কর্মকর্তার উদ্যোগে ১৮ লাখ টাকা ব্যয়ে দিঘিটি পুনঃখনন করে একটি দৃষ্টিনন্দন ইকো পার্কে রূপান্তর করা হয়।
+          </p>
+          <p class="about-text" id="about-p2">
+            ২০২১ সালে সর্বসাধারণের জন্য উন্মুক্ত এই পার্কটি সাড়ে ৫ একর জমির উপর বিস্তৃত। বর্তমানে এটি রংপুর অঞ্চলের অন্যতম জনপ্রিয় পিকনিক স্পট ও পারিবারিক বিনোদনকেন্দ্র। রংপুর শহর থেকে মাত্র ২০ কিলোমিটার দূরে অবস্থিত।
+          </p>
+          <div class="about-features">
+            <div class="feature-item">
+              <span class="feature-icon">🏊</span>
+              <span id="feat1">ঐতিহাসিক বামনদীঘি</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">❤️</span>
+              <span id="feat2">I Love Rangpur ভাস্কর্য</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🌙</span>
+              <span id="feat3">সোলার লাইটিং ব্যবস্থা</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🐦</span>
+              <span id="feat4">শীতকালীন পরিযায়ী পাখি</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ATTRACTIONS SECTION ===== -->
+  <section id="attractions" class="attractions section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" id="attr-tag">আকর্ষণ সমূহ</div>
+        <h2 class="section-title" id="attr-title">পার্কের বিশেষ <span class="highlight">আকর্ষণ</span></h2>
+        <p class="section-desc" id="attr-desc">বামনডিহি ইকো পার্কে রয়েছে অসংখ্য আকর্ষণীয় স্থান ও কার্যক্রম</p>
+      </div>
+      <div class="attractions-grid">
+        <div class="attraction-card" id="card1">
+          <div class="card-icon">🏊</div>
+          <h3 id="attr1-title">ঐতিহাসিক বামনদীঘি</h3>
+          <p id="attr1-desc">পার্কের কেন্দ্রবিন্দু এই বিশাল দিঘি। টাইলস বাঁধানো হাঁটার পথ দিঘির চারপাশ ঘিরে রয়েছে। স্বচ্ছ জলে আকাশের প্রতিফলন অপূর্ব দৃশ্য তৈরি করে।</p>
+          <div class="card-tag" id="attr1-tag">Bamandighi Pond</div>
+        </div>
+        <div class="attraction-card featured" id="card2">
+          <div class="card-icon">❤️</div>
+          <h3 id="attr2-title">I Love Rangpur ভাস্কর্য</h3>
+          <p id="attr2-desc">পার্কের সবচেয়ে আইকনিক স্থাপনা। এই রঙিন ভাস্কর্যের সামনে ছবি তোলা দর্শনার্থীদের কাছে অত্যন্ত জনপ্রিয়। প্রতিদিন অসংখ্য পরিবার এখানে ছবি তোলেন।</p>
+          <div class="card-tag" id="attr2-tag">I Love Rangpur</div>
+        </div>
+        <div class="attraction-card" id="card3">
+          <div class="card-icon">🌿</div>
+          <h3 id="attr3-title">হাঁটার পথ ও ঘাট</h3>
+          <p id="attr3-desc">দিঘির দুই পাশে দুটি সান বাঁধানো ঘাট রয়েছে। টাইলস বাঁধানো হাঁটার পথ ও বসার বেঞ্চ রয়েছে সারাপার্ক জুড়ে।</p>
+          <div class="card-tag" id="attr3-tag">Walking Path</div>
+        </div>
+        <div class="attraction-card" id="card4">
+          <div class="card-icon">🎠</div>
+          <h3 id="attr4-title">শিশু বিনোদন এলাকা</h3>
+          <p id="attr4-desc">শিশুদের জন্য স্লাইড, দোলনা ও ব্যালেন্সার সহ আনন্দময় খেলার মাঠ। পরিবারের সাথে সময় কাটানোর আদর্শ জায়গা।</p>
+          <div class="card-tag" id="attr4-tag">Kids Zone</div>
+        </div>
+        <div class="attraction-card" id="card5">
+          <div class="card-icon">🏡</div>
+          <h3 id="attr5-title">সবুজ গেজেবো</h3>
+          <p id="attr5-desc">উত্তর পাড়ে লাল-সবুজ রঙের দৃষ্টিনন্দন গেজেবো (বিশ্রামাগার)। এখানে বসে দিঘির সৌন্দর্য উপভোগ করা যায়।</p>
+          <div class="card-tag" id="attr5-tag">Green Gazebo</div>
+        </div>
+        <div class="attraction-card" id="card6">
+          <div class="card-icon">🦢</div>
+          <h3 id="attr6-title">পরিযায়ী পাখি</h3>
+          <p id="attr6-desc">শীতকালে অতিথি পাখিদের অভয়াশ্রম হয়ে ওঠে এই পার্ক। ফলদ বৃক্ষের ছায়ায় প্রকৃতির অপূর্ব দৃশ্য উপভোগ করুন।</p>
+          <div class="card-tag" id="attr6-tag">Migratory Birds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY SECTION ===== -->
+  <section id="gallery" class="gallery-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" id="gal-tag">ফটো গ্যালারি</div>
+        <h2 class="section-title" id="gal-title">পার্কের <span class="highlight">আসল চিত্রমালা</span></h2>
+        <p class="section-desc" id="gal-desc">কালেক্টরেট বামনদীঘি ইকো পার্কের দর্শনার্থীদের তোলা সুন্দর দৃশ্যসমূহ (অটো-স্ক্রলিং অ্যানিমেশন সহ)</p>
+      </div>
+
+      <!-- AUTO-SCROLLING SLIDER MARQUEE (Row 1 - Left) -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track scroll-left">
+          <div class="marquee-card">
+            <img src="images/park-photos/hero.jpg" alt="Eco Park View" />
+            <div class="marquee-caption">🌅 বামনদীঘি পার্কের প্রাকৃতিক দৃশ্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" />
+            <div class="marquee-caption">❤️ I Love Rangpur ভাস্কর্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo2.jpg" alt="Historic Pond" />
+            <div class="marquee-caption">🏊 ঐতিহাসিক বামনদীঘি</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo3.jpg" alt="Walking Path" />
+            <div class="marquee-caption">🌿 টাইলস বাঁধানো হাঁটার পথ</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo4.jpg" alt="Kids Playground" />
+            <div class="marquee-caption">🎠 শিশু বিনোদন এলাকা</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" />
+            <div class="marquee-caption">🏡 লাল-সবুজ গেজেবো</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" />
+            <div class="marquee-caption">🌞 সান বাঁধানো ঘাট</div>
+          </div>
+          <!-- Loop Duplication for Infinite Scroll -->
+          <div class="marquee-card">
+            <img src="images/park-photos/hero.jpg" alt="Eco Park View" />
+            <div class="marquee-caption">🌅 বামনদীঘি পার্কের প্রাকৃতিক দৃশ্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" />
+            <div class="marquee-caption">❤️ I Love Rangpur ভাস্কর্য</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo2.jpg" alt="Historic Pond" />
+            <div class="marquee-caption">🏊 ঐতিহাসিক বামনদীঘি</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo3.jpg" alt="Walking Path" />
+            <div class="marquee-caption">🌿 টাইলস বাঁধানো হাঁটার পথ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTO-SCROLLING SLIDER MARQUEE (Row 2 - Right) -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track scroll-right">
+          <div class="marquee-card">
+            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" />
+            <div class="marquee-caption">🌞 সান বাঁধানো ঘাট</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/about.jpg" alt="Park Landscape" />
+            <div class="marquee-caption">🌳 সবুজ প্রকৃতি ও বনাঞ্চল</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" />
+            <div class="marquee-caption">🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" />
+            <div class="marquee-caption">🏡 লাল-সবুজ গেজেবো</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo4.jpg" alt="Kids Playground" />
+            <div class="marquee-caption">🎠 শিশু বিনোদন এলাকা</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" />
+            <div class="marquee-caption">❤️ I Love Rangpur ভাস্কর্য</div>
+          </div>
+          <!-- Loop Duplication for Infinite Scroll -->
+          <div class="marquee-card">
+            <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" />
+            <div class="marquee-caption">🌞 সান বাঁধানো ঘাট</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/about.jpg" alt="Park Landscape" />
+            <div class="marquee-caption">🌳 সবুজ প্রকৃতি ও বনাঞ্চল</div>
+          </div>
+          <div class="marquee-card">
+            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" />
+            <div class="marquee-caption">🚶‍♂️ পরিবেশ ও হাঁটার রাস্তা</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOOGLE MAPS & FACEBOOK REAL PHOTO LINKS -->
+      <div class="photo-guide-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="guide-icon">📍</div>
+        <div class="guide-content">
+          <h4>কালেক্টরেট বামনদীঘি ইকো পার্কের দর্শনার্থীদের রিভিউ ও সরাসরি ম্যাপস লিংক</h4>
+          <p>পার্কের শত শত দর্শনার্থীদের রিভিউ, ভিডিও ও ছবি দেখতে নিচের বাটনে ক্লিক করুন:</p>
+          <div class="guide-links">
+            <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="btn-sm">🗺️ Google Maps Review & Photos</a>
+            <a href="https://www.facebook.com/search/top?q=bamandighi%20eco%20park" target="_blank" class="btn-sm">📘 Facebook Public Posts & Photos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item large" id="gitem1">
+          <img src="images/park-photos/photo1.jpg" alt="I Love Rangpur Sculpture" onerror="handleMissingImg(this, '❤️ I Love Rangpur ভাস্কর্য', 'photo1.jpg')" />
+          <div class="gallery-overlay">
+            <span>❤️ I Love Rangpur ভাস্কর্য</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem2">
+          <img src="images/park-photos/photo2.jpg" alt="Historic Pond" onerror="handleMissingImg(this, '🏊 ঐতিহাসিক বামনদীঘি', 'photo2.jpg')" />
+          <div class="gallery-overlay">
+            <span>🏊 ঐতিহাসিক বামনদীঘি</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem3">
+          <img src="images/park-photos/photo3.jpg" alt="Walking Path" onerror="handleMissingImg(this, '🌿 টাইলস বাঁধানো পথ', 'photo3.jpg')" />
+          <div class="gallery-overlay">
+            <span>🌿 টাইলস বাঁধানো পথ</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem4">
+          <img src="images/park-photos/photo4.jpg" alt="Kids Playground" onerror="handleMissingImg(this, '🎠 শিশু বিনোদন এলাকা', 'photo4.jpg')" />
+          <div class="gallery-overlay">
+            <span>🎠 শিশু বিনোদন এলাকা</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem5">
+          <img src="images/park-photos/photo5.jpg" alt="Green Gazebo" onerror="handleMissingImg(this, '🏡 লাল-সবুজ গেজেবো', 'photo5.jpg')" />
+          <div class="gallery-overlay">
+            <span>🏡 লাল-সবুজ গেজেবো</span>
+          </div>
+        </div>
+        <div class="gallery-item" id="gitem6">
+          <img src="images/park-photos/photo6.jpg" alt="Sun-bathing Ghat" onerror="handleMissingImg(this, '🌞 সান বাঁধানো ঘাট', 'photo6.jpg')" />
+          <div class="gallery-overlay">
+            <span>🌞 সান বাঁধানো ঘাট</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TICKETS SECTION ===== -->
+  <section id="tickets" class="tickets-section section">
+    <div class="tickets-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag light" id="tick-tag">প্রবেশ মূল্য</div>
+        <h2 class="section-title light" id="tick-title">টিকেট ও <span class="highlight-light">মূল্য তালিকা</span></h2>
+        <p class="section-desc light" id="tick-desc">সকাল ৯টা থেকে সন্ধ্যা ৬টা পর্যন্ত খোলা (শুক্রবার ও সরকারি ছুটির দিন ব্যতীত)</p>
+      </div>
+      <div class="tickets-grid">
+        <div class="ticket-card" id="tick1">
+          <div class="ticket-header">
+            <span class="ticket-icon">🎟️</span>
+            <h3 id="tick1-title">প্রবেশ মূল্য</h3>
+            <p id="tick1-sub">সকল বয়সের দর্শনার্থী</p>
+          </div>
+          <div class="ticket-price">
+            <span class="price-num" style="font-size:2.5rem">বিনামূল্যে</span>
+          </div>
+          <ul class="ticket-features">
+            <li id="tf1-1">✓ সম্পূর্ণ উন্মুক্ত পার্ক</li>
+            <li id="tf1-2">✓ সকল এলাকায় প্রবেশ</li>
+            <li id="tf1-3">✓ কোনো টিকেট লাগে না</li>
+          </ul>
+          <a href="#contact" class="btn btn-ticket" id="tick1-btn">দিকনির্দেশনা দেখুন</a>
+        </div>
+        <div class="ticket-card popular" id="tick2">
+          <div class="popular-badge" id="pop-badge">সময়সূচি</div>
+          <div class="ticket-header">
+            <span class="ticket-icon">🕐</span>
+            <h3 id="tick2-title">খোলার সময়</h3>
+            <p id="tick2-sub">প্রতিদিন সকাল থেকে সন্ধ্যা</p>
+          </div>
+          <div class="ticket-price" style="flex-direction:column;gap:0.5rem">
+            <span class="price-num" style="font-size:1.8rem">সকাল ৯টা</span>
+            <span style="color:var(--gold-light);font-size:1rem">— থেকে —</span>
+            <span class="price-num" style="font-size:1.8rem">সন্ধ্যা ৬টা</span>
+          </div>
+          <ul class="ticket-features">
+            <li id="tf2-1">✓ প্রতিদিন খোলা</li>
+            <li id="tf2-2">✓ শীতকালে বিশেষ পরিবেশ</li>
+            <li id="tf2-3">✓ সোলার লাইট ব্যবস্থা</li>
+            <li id="tf2-4">✓ সিকিউরিটি সার্বক্ষণিক</li>
+          </ul>
+          <a href="#contact" class="btn btn-ticket-primary" id="tick2-btn">এখনই আসুন</a>
+        </div>
+        <div class="ticket-card" id="tick3">
+          <div class="ticket-header">
+            <span class="ticket-icon">📍</span>
+            <h3 id="tick3-title">কীভাবে আসবেন</h3>
+            <p id="tick3-sub">রংপুর-সৈয়দপুর মহাসড়ক</p>
+          </div>
+          <div class="ticket-price" style="flex-direction:column">
+            <span class="price-num" style="font-size:2rem">~২০ কিমি</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:0.85rem">রংপুর শহর থেকে</span>
+          </div>
+          <ul class="ticket-features">
+            <li id="tf3-1">✓ তারাগঞ্জ উপজেলা, রংপুর</li>
+            <li id="tf3-2">✓ ইকরচালী ইউনিয়ন</li>
+            <li id="tf3-3">✓ মহাসড়কের পাশেই অবস্থিত</li>
+            <li id="tf3-4">✓ যেকোনো যানবাহনে আসা যায়</li>
+          </ul>
+          <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="btn btn-ticket" id="tick3-btn">Google Maps এ দেখুন</a>
+        </div>
+      </div>
+      <div class="tickets-note" id="tick-note">
+        <span>📌</span> এই পার্কে প্রবেশ সম্পূর্ণ বিনামূল্যে — সবার জন্য উন্মুক্ত!
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACILITIES SECTION ===== -->
+  <section id="facilities" class="facilities-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" id="fac-tag">সুবিধাসমূহ</div>
+        <h2 class="section-title" id="fac-title">আমাদের <span class="highlight">সুযোগ-সুবিধা</span></h2>
+      </div>
+      <div class="facilities-content">
+        <div class="facilities-image">
+          <div class="fac-img-box">
+            <img src="images/park-photos/facilities.jpg" alt="Park Facilities" class="fac-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="img-placeholder-card fac-ph">
+              <span class="ph-icon">🌳</span>
+              <span class="ph-text">বামনদীঘির পরিবেশ ও সুযোগ-সুবিধা</span>
+              <small class="ph-sub">images/park-photos/facilities.jpg</small>
+            </div>
+          </div>
+        </div>
+        <div class="facilities-grid">
+          <div class="facility-item" id="fac1">
+            <div class="fac-icon">🌊</div>
+            <div>
+              <h4 id="fac1-title">টাইলস বাঁধানো হাঁটার পথ</h4>
+              <p id="fac1-desc">দিঘির চারপাশে পাকা হাঁটার পথ</p>
+            </div>
+          </div>
+          <div class="facility-item" id="fac2">
+            <div class="fac-icon">🪑</div>
+            <div>
+              <h4 id="fac2-title">বসার বেঞ্চ</h4>
+              <p id="fac2-desc">পার্কের বিভিন্ন স্থানে বসার ব্যবস্থা</p>
+            </div>
+          </div>
+          <div class="facility-item" id="fac3">
+            <div class="fac-icon">🌞</div>
+            <div>
+              <h4 id="fac3-title">সান বাঁধানো ঘাট</h4>
+              <p id="fac3-desc">দিঘির দুই পাশে দুটি সুন্দর ঘাট</p>
+            </div>
+          </div>
+          <div class="facility-item" id="fac4">
+            <div class="fac-icon">💡</div>
+            <div>
+              <h4 id="fac4-title">সোলার লাইটিং</h4>
+              <p id="fac4-desc">নিরাপত্তার জন্য সোলার বাতির ব্যবস্থা</p>
+            </div>
+          </div>
+          <div class="facility-item" id="fac5">
+            <div class="fac-icon">🏡</div>
+            <div>
+              <h4 id="fac5-title">সবুজ গেজেবো</h4>
+              <p id="fac5-desc">উত্তর পাড়ে লাল-সবুজ বিশ্রামাগার</p>
+            </div>
+          </div>
+          <div class="facility-item" id="fac6">
+            <div class="fac-icon">🌳</div>
+            <div>
+              <h4 id="fac6-title">ফলদ বৃক্ষের সারি</h4>
+              <p id="fac6-desc">পার্ক জুড়ে বিভিন্ন ফলের গাছ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" id="con-tag">যোগাযোগ করুন</div>
+        <h2 class="section-title" id="con-title">আমাদের সাথে <span class="highlight">যোগাযোগ</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item" id="ci1">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4 id="ci1-title">ঠিকানা</h4>
+              <p id="ci1-desc">ইকরচালী ইউনিয়ন, তারাগঞ্জ উপজেলা,<br/>রংপুর জেলা, বাংলাদেশ</p>
+            </div>
+          </div>
+          <div class="contact-item" id="ci2">
+            <div class="contact-icon">🗺️</div>
+            <div>
+              <h4 id="ci2-title">অবস্থান</h4>
+              <p id="ci2-desc">রংপুর-সৈয়দপুর মহাসড়কের পাশে<br/>রংপুর শহর থেকে ~২০ কিলোমিটার</p>
+            </div>
+          </div>
+          <div class="contact-item" id="ci3">
+            <div class="contact-icon">🏛️</div>
+            <div>
+              <h4 id="ci3-title">পরিচালনায়</h4>
+              <p id="ci3-desc">তারাগঞ্জ উপজেলা প্রশাসন<br/>রংপুর জেলা প্রশাসন</p>
+            </div>
+          </div>
+          <div class="contact-item" id="ci4">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <h4 id="ci4-title">সময়সূচি</h4>
+              <p id="ci4-desc">সকাল থেকে সন্ধ্যা পর্যন্ত<br/>প্রতিদিন উন্মুক্ত</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/search/top?q=bamandighi%20eco%20park" target="_blank" class="social-btn" id="soc-fb" aria-label="Facebook">
+              <span>📘</span> Facebook
+            </a>
+            <a href="https://maps.google.com/?q=Collectorate+Bamandighi+Eco+Park+Taraganj+Rangpur" target="_blank" class="social-btn" id="soc-gm" aria-label="Google Maps">
+              <span>🗺️</span> Google Maps
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+            <h3 id="form-title">বার্তা পাঠান</h3>
+            <div class="form-group">
+              <input type="text" id="form-name" placeholder="আপনার নাম" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" id="form-phone" placeholder="ফোন নম্বর" />
+            </div>
+            <div class="form-group">
+              <input type="email" id="form-email" placeholder="ইমেইল ঠিকানা" />
+            </div>
+            <div class="form-group">
+              <select id="form-subject">
+                <option value="" id="fsubj-default">বিষয় নির্বাচন করুন</option>
+                <option id="fsubj1">টিকেট বুকিং</option>
+                <option id="fsubj2">পিকনিক স্পট বুকিং</option>
+                <option id="fsubj3">অনুষ্ঠান আয়োজন</option>
+                <option id="fsubj4">অন্যান্য</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea id="form-message" rows="4" placeholder="আপনার বার্তা লিখুন..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary full-width" id="form-submit">
+              <span>📨</span> <span id="submit-text">বার্তা পাঠান</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-icon">🌳</span>
+        <div>
+          <span class="footer-logo-bn">কালেক্টরেট বামনডিহি ইকো পার্ক</span>
+          <span class="footer-logo-en">Collectorate Bamandighi Eco Park</span>
+        </div>
+      </div>
+      <p class="footer-copy" id="footer-copy">© ২০২৬ কালেক্টরেট বামনডিহি ইকো পার্ক। সর্বস্বত্ব সংরক্ষিত।</p>
+      <p class="footer-slogan" id="footer-slogan">🌿 প্রকৃতির সাথে থাকুন, পরিবেশ বাঁচান 🌿</p>
+    </div>
+  </footer>
+
+  <!-- ===== SUCCESS TOAST ===== -->
+  <div class="toast" id="success-toast">
+    <span>✅</span> <span id="toast-msg">বার্তা সফলভাবে পাঠানো হয়েছে!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
