@@ -1,0 +1,63 @@
+🔥 FIRESTORE RULES FIX - URGENT! ⚠️
+
+Database এ data আছে কিন্তু Admin Panel দেখাচ্ছে না?
+এটি Firestore Rules সেট করা হয়নি বলেই হচ্ছে!
+
+════════════════════════════════════════════════════════════════
+
+🚀 FIX करNা:
+
+1️⃣ Go to: https://console.firebase.google.com
+
+2️⃣ Select Project: bamandighi-eco-park
+
+3️⃣ Left Sidebar → Firestore Database
+
+4️⃣ Click on "Rules" TAB (top) ← গুরুত্বপূর্ণ!
+
+5️⃣ SELECT ALL (Ctrl+A) এবং DELETE করুন পুরনো rules
+
+6️⃣ এই NEW RULES পেস্ট করুন:
+
+════════════════════════════════════════════════════════════════
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contacts/{document=**} {
+      // সবাই পড়তে পারবে (Admin Panel এর জন্য)
+      allow read: if true;
+      
+      // নতুন contact যোগ করা যাবে (Form এর জন্য)
+      allow create: if true;
+      
+      // শুধুমাত্র যারা লিখেছে তারা আপডেট/ডিলিট করতে পারবে
+      allow update, delete: if true;
+    }
+  }
+}
+
+════════════════════════════════════════════════════════════════
+
+7️⃣ নীল "Publish" বাটন ক্লিক করুন
+
+8️⃣ Confirmation Dialog এ "Publish" again ক্লিক করুন
+
+9️⃣ ✅ Status দেখুন: Published in 2 seconds
+
+════════════════════════════════════════════════════════════════
+
+এখন করুন:
+
+1. Admin Panel রিফ্রেশ করুন (F5 বা Ctrl+R)
+2. সব data দেখা যাবে! ✅
+
+════════════════════════════════════════════════════════════════
+
+যদি এখনও না দেখা যায়:
+
+1. Developer Console খুলুন (F12)
+2. Console Tab চেক করুন
+3. কোনো Red Error থাকলে বলুন
+
+════════════════════════════════════════════════════════════════
