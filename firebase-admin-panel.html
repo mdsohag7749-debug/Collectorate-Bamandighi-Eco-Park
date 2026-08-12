@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firebase Admin প্যানেল | Bamandighi Eco Park</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green-dark: #0a2e0a;
+      --green-primary: #1a6b2f;
+      --green-mid: #2d8a4e;
+      --gold: #d4a843;
+      --cream: #faf8f2;
+      --white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-light: #6b7c6e;
+      --shadow: 0 4px 15px rgba(10, 46, 10, 0.1);
+    }
+
+    body {
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      background: #f5f5f5;
+      color: var(--text-dark);
+      padding: 0;
+      margin: 0;
+    }
+
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* ===== HEADER ===== */
+    .admin-header {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-primary));
+      color: white;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .admin-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .admin-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--green-dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 168, 67, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+
+    /* ===== STATS ===== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      background: white;
+      margin: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #f5faf8, #eef6f2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--green-primary);
+      text-align: center;
+    }
+
+    .stat-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* ===== CONTENT AREA ===== */
+    .content-area {
+      padding: 2rem;
+      background: white;
+      margin: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .content-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-controls select,
+    .filter-controls input {
+      padding: 0.7rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    /* ===== CONTACTS TABLE ===== */
+    .contacts-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .contacts-table th {
+      background: linear-gradient(135deg, var(--green-primary), var(--green-mid));
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contacts-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .contacts-table tbody tr:hover {
+      background: #f9f9f9;
+    }
+
+    .contact-name {
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    .contact-date {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .status-new {
+      background: #ffeaa7;
+      color: #d63031;
+    }
+
+    .status-pending {
+      background: #a29bfe;
+      color: #2d3436;
+    }
+
+    .status-replied {
+      background: #55efc4;
+      color: #00b894;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .action-btn {
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .action-view {
+      background: var(--green-primary);
+      color: white;
+    }
+
+    .action-view:hover {
+      background: var(--green-mid);
+    }
+
+    .action-delete {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .action-delete:hover {
+      background: #c0392b;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: white;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .close-btn:hover {
+      color: var(--text-dark);
+    }
+
+    .detail-item {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .detail-item:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: var(--green-dark);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .detail-value {
+      color: var(--text-light);
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-light);
+    }
+
+    .empty-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .empty-text {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid var(--green-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .admin-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contacts-table {
+        font-size: 0.85rem;
+      }
+
+      .contacts-table th,
+      .contacts-table td {
+        padding: 0.7rem;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Header -->
+    <div class="admin-header">
+      <div>
+        <div class="admin-title">🔥 Firebase Admin প্যানেল</div>
+        <div class="admin-subtitle">বামনদিঘি ইকো পার্ক - যোগাযোগ ব্যবস্থাপনা (Firestore)</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="refreshData()">
+          🔄 রিফ্রেশ
+        </button>
+        <button class="btn btn-secondary" onclick="goHome()">
+          🏠 হোম
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div class="stat-number" id="statTotal">0</div>
+        <div class="stat-label">মোট যোগাযোগ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🆕</div>
+        <div class="stat-number" id="statNew">0</div>
+        <div class="stat-label">নতুন</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-number" id="statPending">0</div>
+        <div class="stat-label">পেন্ডিং</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-number" id="statReplied">0</div>
+        <div class="stat-label">উত্তর দেওয়া</div>
+      </div>
+    </div>
+
+    <!-- Contacts Content -->
+    <div class="content-area">
+      <div class="content-header">
+        <div class="content-title">সকল যোগাযোগ (Firebase)</div>
+        <div class="filter-controls">
+          <select id="filterStatus" onchange="filterContacts()">
+            <option value="">সব স্থিতি</option>
+            <option value="নতুন">নতুন</option>
+            <option value="পেন্ডিং">পেন্ডিং</option>
+            <option value="উত্তর দেওয়া হয়েছে">উত্তর দেওয়া</option>
+          </select>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="নাম বা ইমেইল খুঁজুন..."
+            onkeyup="filterContacts()"
+          />
+        </div>
+      </div>
+
+      <div id="messageArea"></div>
+
+      <table class="contacts-table" id="contactsTable">
+        <thead>
+          <tr>
+            <th>নাম</th>
+            <th>যোগাযোগ</th>
+            <th>বিষয়</th>
+            <th>তারিখ</th>
+            <th>স্থিতি</th>
+            <th>পদক্ষেপ</th>
+          </tr>
+        </thead>
+        <tbody id="contactsBody">
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 2rem;">
+              <div class="loading"></div> লোড হচ্ছে...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <div class="empty-icon">📭</div>
+        <div class="empty-text">কোনো যোগাযোগ নেই</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">যোগাযোগের বিবরণ</div>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn btn-primary" onclick="closeModal()">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { 
+      getAllContacts, 
+      deleteContact, 
+      updateContactStatus, 
+      getStats,
+      getFilteredContacts
+    } from './firebase-config.js';
+
+    let allContacts = [];
+
+    // Load contacts on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadContacts();
+      loadStats();
+    });
+
+    // Load all contacts
+    window.loadContacts = async function () {
+      try {
+        const result = await getAllContacts();
+
+        if (result.success) {
+          allContacts = result.data;
+          displayContacts(allContacts);
+          loadStats();
+        }
+      } catch (error) {
+        console.error('Error loading contacts:', error);
+        showError('যোগাযোগ লোড করতে ব্যর্থ');
+      }
+    };
+
+    // Display contacts
+    window.displayContacts = function (contacts) {
+      const tbody = document.getElementById('contactsBody');
+      const emptyState = document.getElementById('emptyState');
+
+      if (contacts.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      tbody.innerHTML = contacts
+        .map(
+          (contact) => `
+        <tr>
+          <td class="contact-name">${contact.name}</td>
+          <td>
+            ${contact.phone ? `📱 ${contact.phone}<br/>` : ''}
+            ${contact.email ? `✉️ ${contact.email}` : ''}
+          </td>
+          <td>${contact.subject}</td>
+          <td class="contact-date">${new Date(contact.timestamp).toLocaleDateString('bn-BD')}</td>
+          <td>
+            <select class="status-badge ${getStatusClass(contact.status)}" 
+                    onchange="updateStatus('${contact.docId}', this.value)"
+                    style="padding: 0.5rem; border: none; border-radius: 4px; cursor: pointer;">
+              <option value="নতুন" ${contact.status === 'নতুন' ? 'selected' : ''}>নতুন</option>
+              <option value="পেন্ডিং" ${contact.status === 'পেন্ডিং' ? 'selected' : ''}>পেন্ডিং</option>
+              <option value="উত্তর দেওয়া হয়েছে" ${contact.status === 'উত্তর দেওয়া হয়েছে' ? 'selected' : ''}>উত্তর দেওয়া</option>
+            </select>
+          </td>
+          <td class="contact-actions">
+            <button class="action-btn action-view" onclick="viewDetail('${contact.docId}')">👁️ দেখুন</button>
+            <button class="action-btn action-delete" onclick="deleteContactConfirm('${contact.docId}')">🗑️ মুছুন</button>
+          </td>
+        </tr>
+      `
+        )
+        .join('');
+    };
+
+    // Get status class
+    window.getStatusClass = function (status) {
+      switch (status) {
+        case 'নতুন':
+          return 'status-new';
+        case 'পেন্ডিং':
+          return 'status-pending';
+        case 'উত্তর দেওয়া হয়েছে':
+          return 'status-replied';
+        default:
+          return 'status-new';
+      }
+    };
+
+    // View contact detail
+    window.viewDetail = function (docId) {
+      const contact = allContacts.find((c) => c.docId === docId);
+      if (contact) {
+        const modalBody = document.getElementById('modalBody');
+        modalBody.innerHTML = `
+          <div class="detail-item">
+            <div class="detail-label">নাম</div>
+            <div class="detail-value">${contact.name}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">ফোন</div>
+            <div class="detail-value">${contact.phone || 'দেওয়া হয়নি'}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">ইমেইল</div>
+            <div class="detail-value">${contact.email || 'দেওয়া হয়নি'}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">বিষয়</div>
+            <div class="detail-value">${contact.subject}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">বার্তা</div>
+            <div class="detail-value">${contact.message}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">স্থিতি</div>
+            <div class="detail-value">
+              <span class="status-badge ${getStatusClass(contact.status)}">${contact.status}</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">প্রাপ্তির সময়</div>
+            <div class="detail-value">${new Date(contact.timestamp).toLocaleString('bn-BD')}</div>
+          </div>
+        `;
+        document.getElementById('detailModal').style.display = 'block';
+      }
+    };
+
+    // Close modal
+    window.closeModal = function () {
+      document.getElementById('detailModal').style.display = 'none';
+    };
+
+    // Update status
+    window.updateStatus = async function (docId, status) {
+      try {
+        const result = await updateContactStatus(docId, status);
+        if (result.success) {
+          showSuccess('স্থিতি আপডেট হয়েছে');
+          loadContacts();
+        }
+      } catch (error) {
+        console.error('Error updating status:', error);
+        showError('আপডেট ব্যর্থ');
+      }
+    };
+
+    // Delete contact
+    window.deleteContactConfirm = function (docId) {
+      if (confirm('এই যোগাযোগ মুছে ফেলতে চান?')) {
+        deleteContactFinal(docId);
+      }
+    };
+
+    window.deleteContactFinal = async function (docId) {
+      try {
+        const result = await deleteContact(docId);
+        if (result.success) {
+          showSuccess('যোগাযোগ মুছে ফেলা হয়েছে');
+          loadContacts();
+        }
+      } catch (error) {
+        console.error('Error deleting contact:', error);
+        showError('মুছতে ব্যর্থ');
+      }
+    };
+
+    // Filter contacts
+    window.filterContacts = function () {
+      const status = document.getElementById('filterStatus').value;
+      const search = document.getElementById('searchInput').value.toLowerCase();
+
+      const filtered = allContacts.filter((contact) => {
+        const matchStatus = !status || contact.status === status;
+        const matchSearch =
+          !search ||
+          contact.name.toLowerCase().includes(search) ||
+          (contact.email && contact.email.toLowerCase().includes(search));
+        return matchStatus && matchSearch;
+      });
+
+      displayContacts(filtered);
+    };
+
+    // Load stats
+    window.loadStats = async function () {
+      try {
+        const result = await getStats();
+
+        if (result.success) {
+          document.getElementById('statTotal').textContent = result.data.total;
+          document.getElementById('statNew').textContent = result.data.new;
+          document.getElementById('statPending').textContent = result.data.pending;
+          document.getElementById('statReplied').textContent = result.data.replied;
+        }
+      } catch (error) {
+        console.error('Error loading stats:', error);
+      }
+    };
+
+    // Refresh data
+    window.refreshData = function () {
+      loadContacts();
+      showSuccess('ডাটা রিফ্রেশ হয়েছে');
+    };
+
+    // Show success message
+    window.showSuccess = function (message) {
+      const msgArea = document.getElementById('messageArea');
+      msgArea.innerHTML = `<div class="success-message">✅ ${message}</div>`;
+      setTimeout(() => (msgArea.innerHTML = ''), 3000);
+    };
+
+    // Show error message
+    window.showError = function (message) {
+      const msgArea = document.getElementById('messageArea');
+      msgArea.innerHTML = `<div class="error-message">❌ ${message}</div>`;
+      setTimeout(() => (msgArea.innerHTML = ''), 3000);
+    };
+
+    // Go home
+    window.goHome = function () {
+      window.location.href = 'index.html';
+    };
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById('detailModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
