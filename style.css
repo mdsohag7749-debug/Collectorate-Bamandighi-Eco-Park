@@ -1979,3 +1979,243 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 
 
+/* ===============================
+   FLYING BIRDS SYSTEM
+   =============================== */
+
+/* Fixed container spanning the whole viewport */
+#birds-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* clicks pass through except on birds */
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* Individual bird element */
+.flying-bird {
+  position: absolute;
+  pointer-events: all;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  animation-name: bird-fly-ltr;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+/* Bird flying LEFT TO RIGHT */
+@keyframes bird-fly-ltr {
+  0%   { transform: translateX(-120px); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 150px)); opacity: 0; }
+}
+
+/* Bird flying RIGHT TO LEFT */
+@keyframes bird-fly-rtl {
+  0%   { transform: translateX(calc(100vw + 120px)) scaleX(-1); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateX(-150px) scaleX(-1); opacity: 0; }
+}
+
+.flying-bird.rtl {
+  animation-name: bird-fly-rtl;
+}
+
+/* Bird wave wrapper — sinusoidal vertical drift */
+.bird-wave {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Realistic SVG bird silhouette */
+.bird-body {
+  display: block;
+  filter:
+    drop-shadow(0 0 6px rgba(255,255,255,0.7))
+    drop-shadow(0 0 14px rgba(255,255,255,0.4))
+    drop-shadow(0 5px 14px rgba(0,0,0,0.5));
+  transition: filter 0.2s ease;
+}
+
+.bird-svg {
+  width: 140px;
+  height: 58px;
+  display: block;
+  overflow: visible;
+}
+
+/* Wing animations — rotate around body junction */
+.bird-wing-l {
+  transform-box: fill-box;
+  transform-origin: right center;
+  animation: wing-flap-l 0.9s ease-in-out infinite alternate;
+}
+
+.bird-wing-r {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: wing-flap-r 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes wing-flap-l {
+  0%   { transform: rotateZ(22deg); }
+  100% { transform: rotateZ(-36deg); }
+}
+
+@keyframes wing-flap-r {
+  0%   { transform: rotateZ(-22deg); }
+  100% { transform: rotateZ(36deg); }
+}
+
+/* Natural sinusoidal flight drift */
+@keyframes bird-sine {
+  0%   { transform: translateY(0px)   rotate(-1deg); }
+  25%  { transform: translateY(-18px) rotate(-2.5deg); }
+  50%  { transform: translateY(0px)   rotate(0deg); }
+  75%  { transform: translateY(15px)  rotate(2deg); }
+  100% { transform: translateY(0px)   rotate(-1deg); }
+}
+
+/* Small label under the bird – appears on hover */
+.bird-label {
+  background: rgba(10, 46, 10, 0.85);
+  color: #fff;
+  font-size: 0.6rem;
+  font-family: 'Hind Siliguri', sans-serif;
+  padding: 2px 6px;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.flying-bird:hover .bird-label,
+.flying-bird:focus .bird-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pulse ring when clicked */
+.flying-bird.clicked .bird-body {
+  animation: bird-click-pulse 0.35s ease-out;
+}
+
+@keyframes bird-click-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+/* ===============================
+   BIRD INFO POPUP CARD
+   =============================== */
+
+.bird-popup {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: linear-gradient(135deg, #0d3b1a 0%, #1a6b2f 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 1.2rem 1.4rem;
+  min-width: 270px;
+  max-width: 340px;
+  box-shadow: 0 12px 40px rgba(10, 46, 10, 0.55), 0 0 0 1px rgba(255,255,255,0.1);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10000;
+  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(76, 175, 114, 0.35);
+}
+
+.bird-popup.show {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bird-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+}
+
+.bird-popup-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.bird-popup-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  animation: popup-icon-bounce 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes popup-icon-bounce {
+  0%   { transform: scale(0) rotate(-15deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.bird-popup-title {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a8d5b5;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.bird-popup-text {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .bird-popup {
+  background: linear-gradient(135deg, #071a07 0%, #0d3b1a 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(76,175,114,0.2);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .bird-popup {
+    min-width: 230px;
+    max-width: 290px;
+    bottom: 70px;
+    padding: 1rem 1.1rem;
+  }
+  .bird-svg {
+    width: 100px;
+    height: 42px;
+  }
+}

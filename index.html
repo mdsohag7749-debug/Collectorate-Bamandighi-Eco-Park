@@ -61,6 +61,17 @@
 </head>
 <body>
 
+  <!-- ===== FLYING BIRDS LAYER ===== -->
+  <div id="birds-layer" aria-hidden="true"></div>
+
+  <!-- BIRD INFO POPUP -->
+  <div id="bird-popup" class="bird-popup" role="tooltip" aria-live="polite">
+    <button class="bird-popup-close" onclick="closeBirdPopup()" aria-label="বন্ধ করুন">✕</button>
+    <div class="bird-popup-icon" id="bird-popup-icon">🌳</div>
+    <div class="bird-popup-title" id="bird-popup-title">বামনদিঘি ইকো পার্ক</div>
+    <div class="bird-popup-text" id="bird-popup-text">পার্কের তথ্য লোড হচ্ছে...</div>
+  </div>
+
   <!-- ===== SCROLL PROGRESS BAR ===== -->
   <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 

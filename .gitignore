@@ -2,3 +2,16 @@
 node_modules/
 .DS_Store
 *.log
+
+# Build output
+dist/
+
+# Environment files (never commit real credentials)
+.env
+.env.local
+.env.*.local
+
+# Firebase local tooling
+.firebase/
+firebase-debug.log
+firestore-debug.log

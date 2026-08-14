@@ -4,6 +4,7 @@
   "description": "Collectorate Bamandighi Eco Park promotional website with contact management & AR",
   "private": true,
   "scripts": {
+    "build": "echo \"Static site build clean.\"",
     "start": "serve . -l 3000",
     "dev": "serve . -l 3000",
     "server": "node server-backend.js",

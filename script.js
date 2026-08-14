@@ -765,3 +765,277 @@ document.addEventListener('click', (e) => {
     document.getElementById('hamburger').classList.remove('active');
   }
 });
+
+/* =============================================
+   🐦 FLYING BIRDS SYSTEM
+   ============================================= */
+
+const BIRD_PARK_FACTS = [
+  {
+    icon: '🇧🇩',
+    title: '🐦 জাতীয় পাখি — দোয়েল!',
+    text: 'দোয়েল (Oriental Magpie Robin) বাংলাদেশের জাতীয় পাখি। কালো ও সাদা রঙের এই সুন্দর পাখিটি তার সুরেলা কণ্ঠস্বর ও দীর্ঘ লেজের জন্য বিখ্যাত। এটি পার্কে দেখা যায়!'
+  },
+  {
+    icon: '🌟',
+    title: 'দোয়েলের বিশেষত্ব',
+    text: 'দোয়েল পাখি সকালে সবার আগে গান গায়। বাংলাদেশে দোয়েলকে স্বাধীনতা ও প্রকৃতির প্রতীক হিসেবে দেখা হয়। বামনদিঘিতে শীতকালে অনেক দোয়েল দেখা যায়।'
+  },
+  {
+    icon: '🇯🇳',
+    title: 'বামনদিঘি ইকো পার্ক',
+    text: 'পার্কটি সাড়ে ৫ একর জমির উপর বিস্তৃত। রংপুর-সৈয়দপুর মহাসড়কের পাশে অবস্থিত।'
+  },
+  {
+    icon: '💧',
+    title: 'ঐতিহাসিক বামনদিঘি',
+    text: '২০২০ সালে ১৮ লাখ টাকা ব্যয়ে দিঘিটি পুনঃখনন করা হয়। স্বচ্ছ জলে আকাশের প্রতিফলন অপূর্ব দৃশ্য তৈরি করে।'
+  },
+  {
+    icon: '❤️',
+    title: 'I Love Rangpur ভাস্কর্য',
+    text: 'পার্কের সবচেয়ে আইকনিক স্থাপনা। প্রতিদিন অসংখ্য পরিবার এখানে ছবি তোলেন।'
+  },
+  {
+    icon: '🌿',
+    title: 'প্রবেশ সম্পূর্ণ বিনামূল্যে!',
+    text: 'পার্কে প্রবেশ করতে কোনো টিকেট লাগে না। পরিবার, বন্ধু সবাই মিলে আসুন।'
+  },
+  {
+    icon: '🐦',
+    title: 'পরিযায়ী পাখির আশ্রয়',
+    text: 'শীতকালে অতিথি পাখিদের অভয়াশ্রম হয়ে ওঠে এই পার্ক। অসংখ্য প্রজাতির পাখি দেখা যায়।'
+  },
+  {
+    icon: '🛤️',
+    title: 'হাঁটার পথ ও ঘাট',
+    text: 'দিঘির চারপাশে টাইলস বাঁধানো হাঁটার পথ ও দুটি সুন্দর সান বাঁধানো ঘাট রয়েছে।'
+  },
+  {
+    icon: '🎠',
+    title: 'শিশু বিনোদন এলাকা',
+    text: 'শিশুদের জন্য স্লাইড, দোলনা ও ব্যালেন্সার সহ আনন্দময় খেলার মাঠ রয়েছে।'
+  },
+  {
+    icon: '☀️',
+    title: 'সোলার লাইটিং ব্যবস্থা',
+    text: 'পুরো পার্কে সোলার শক্তিচালিত আলোর ব্যবস্থা রয়েছে। সন্ধ্যায় পার্ক আলোয় ঝলমল করে।'
+  },
+  {
+    icon: '🏡',
+    title: 'সবুজ গেজেবো',
+    text: 'উত্তর পাড়ে লাল-সবুজ রঙের দৃষ্টিনন্দন গেজেবোতে বসে দিঘির সৌন্দর্য উপভোগ করুন।'
+  },
+  {
+    icon: '📍',
+    title: 'কীভাবে যাবেন?',
+    text: 'রংপুর শহর থেকে মাত্র ২০ কিলোমিটার দূরে, ইকরচালী, তারাগঞ্জ। যেকোনো পরিবহনে সহজে আসা যায়।'
+  }
+];
+
+let birdFactIndex = 0;      // rotate through facts
+let birdPopupTimer = null;  // auto-close timer
+let activeBirdEl = null;    // currently clicked bird
+
+/* ---- Spawn one bird ---- */
+function spawnBird() {
+  const layer = document.getElementById('birds-layer');
+  if (!layer) return;
+
+  // Pick direction randomly
+  const goRTL = Math.random() < 0.4; // 40% chance right-to-left
+
+  // Vertical position: between 10% and 70% of viewport height
+  const topPct = 10 + Math.random() * 60;
+
+  // Duration between 22s and 35s (slow, gentle drift)
+  const duration = 22 + Math.random() * 13;
+
+  // Decide bird type: 60% Doyel (national bird), 40% generic forest bird
+  const isDoyel = Math.random() < 0.6;
+
+  // Generic bird colors (only used for non-Doyel)
+  const forestColors = ['#0a2010', '#1a3a1a', '#2a3820', '#3a2e18'];
+  const forestColor = forestColors[Math.floor(Math.random() * forestColors.length)];
+
+  // Slight size variation (0.85x – 1.3x)
+  const birdScale = (0.85 + Math.random() * 0.45).toFixed(2);
+
+  // Create element
+  const bird = document.createElement('div');
+  bird.className = 'flying-bird' + (goRTL ? ' rtl' : '');
+  bird.setAttribute('role', 'button');
+  bird.setAttribute('tabindex', '0');
+  bird.setAttribute('aria-label', 'পাখিতে ক্লিক করুন — পার্কের তথ্য জানুন');
+
+  bird.style.top = topPct + 'vh';
+  bird.style.left = '0';
+  bird.style.animationDuration = duration + 's';
+
+  // Slight wave path using translateY via secondary animation
+  const waveSeed = Math.random() * 0.6 + 0.8;
+  bird.style.animationName = goRTL ? 'bird-fly-rtl' : 'bird-fly-ltr';
+
+  // Sinusoidal wave period (2.5s – 5s) for natural drift
+  const wavePeriod = (2.5 + Math.random() * 2.5).toFixed(1);
+
+  // Build SVG based on bird type
+  const birdSVG = isDoyel ? `
+    <!-- DOYEL: Bangladesh National Bird (Oriental Magpie Robin) -->
+    <svg class="bird-svg" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+      <!-- Left wing (jet black with white wing-bar) -->
+      <g class="bird-wing-l" style="animation-duration:${waveSeed}s">
+        <path d="M88,43 C70,26 44,18 10,25 C30,28 62,35 86,47Z"
+          fill="#111" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <path d="M85,45 C70,30 52,26 28,31 C44,34 66,39 83,48Z"
+          fill="rgba(255,255,255,0.28)" stroke="none"/>
+      </g>
+
+      <!-- Right wing (jet black with white wing-bar) -->
+      <g class="bird-wing-r" style="animation-duration:${waveSeed}s">
+        <path d="M112,43 C130,26 156,18 192,25 C172,28 140,35 114,47Z"
+          fill="#111" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <path d="M115,45 C130,30 150,26 174,31 C158,34 136,39 117,48Z"
+          fill="rgba(255,255,255,0.28)" stroke="none"/>
+      </g>
+
+      <!-- Body upper (black back) -->
+      <ellipse cx="100" cy="44" rx="18" ry="8" fill="#111"/>
+      <!-- White belly -->
+      <ellipse cx="97" cy="47" rx="14" ry="5.5" fill="rgba(255,255,255,0.88)"/>
+
+      <!-- Neck (black) -->
+      <ellipse cx="115" cy="35" rx="9" ry="8" fill="#111"/>
+      <!-- Head (black) -->
+      <circle cx="124" cy="27" r="11" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <!-- Eye white ring -->
+      <circle cx="127" cy="24" r="3.5" fill="rgba(255,255,255,0.65)"/>
+      <!-- Eye pupil -->
+      <circle cx="127" cy="24" r="1.8" fill="#0a0a0a"/>
+      <!-- Beak (slate) -->
+      <path d="M133,23 L154,26 L133,30Z" fill="#1f1f1f" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+
+      <!-- LONG TAIL — Doyel's most distinctive feature -->
+      <path d="M84,47 C72,60 56,75 44,81 C53,71 70,58 82,49Z" fill="#111"/>
+      <path d="M81,50 C68,64 50,80 39,87 C49,76 67,62 79,52Z" fill="#111"/>
+      <!-- White outer tail feathers -->
+      <path d="M83,48 C73,58 63,70 58,76 C62,68 73,58 82,50Z" fill="rgba(255,255,255,0.42)"/>
+
+      <!-- White glow outline for visibility -->
+      <ellipse cx="100" cy="44" rx="18" ry="8" fill="none"
+        stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+    </svg>
+  ` : `
+    <!-- Generic forest bird (dark silhouette) -->
+    <svg class="bird-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="${forestColor}" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linejoin="round">
+        <g class="bird-wing-l" style="animation-duration:${waveSeed}s">
+          <path d="M88,40 C72,24 48,14 18,20 C8,22 0,28 2,34
+            C18,28 50,30 80,44 L88,44Z" stroke-width="1"/>
+        </g>
+        <ellipse cx="100" cy="43" rx="17" ry="8"/>
+        <ellipse cx="114" cy="34" rx="9" ry="8"/>
+        <circle cx="123" cy="26" r="10"/>
+        <path d="M131,23 L148,26 L131,30Z" stroke-width="0.8"/>
+        <g class="bird-wing-r" style="animation-duration:${waveSeed}s">
+          <path d="M113,40 C129,24 152,14 182,20 C192,22 200,28 198,34
+            C182,28 150,30 120,44 L113,44Z" stroke-width="1"/>
+        </g>
+        <path d="M85,45 C74,55 58,63 50,60 C58,54 76,48 84,43Z"/>
+        <path d="M82,48 C70,59 52,68 44,65 C53,58 72,51 81,46Z"/>
+      </g>
+    </svg>
+  `;
+
+  bird.innerHTML = `
+    <div class="bird-wave" style="animation: bird-sine ${wavePeriod}s ease-in-out infinite;">
+      <div class="bird-body" style="transform: scale(${birdScale});">
+        ${birdSVG}
+      </div>
+      <span class="bird-label">${isDoyel ? '🇧🇩 জাতীয় পাখি দোয়েল' : 'ক্লিক করুন'}</span>
+    </div>
+  `;
+
+  // Click / tap handler
+  function onBirdClick(e) {
+    e.stopPropagation();
+    showBirdPopup(bird);
+  }
+  bird.addEventListener('click', onBirdClick);
+  bird.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') onBirdClick(e); });
+
+  layer.appendChild(bird);
+
+  // Remove after flight ends
+  setTimeout(() => {
+    bird.removeEventListener('click', onBirdClick);
+    if (layer.contains(bird)) layer.removeChild(bird);
+    if (activeBirdEl === bird) activeBirdEl = null;
+  }, (duration + 0.5) * 1000);
+}
+
+/* ---- Show info popup ---- */
+function showBirdPopup(birdEl) {
+  const fact = BIRD_PARK_FACTS[birdFactIndex % BIRD_PARK_FACTS.length];
+  birdFactIndex++;
+
+  // Update popup content
+  document.getElementById('bird-popup-icon').textContent = fact.icon;
+  document.getElementById('bird-popup-title').textContent = fact.title;
+  document.getElementById('bird-popup-text').textContent = fact.text;
+
+  // Pulse the bird
+  if (activeBirdEl) activeBirdEl.classList.remove('clicked');
+  birdEl.classList.add('clicked');
+  activeBirdEl = birdEl;
+
+  // Show popup
+  const popup = document.getElementById('bird-popup');
+  popup.classList.add('show');
+
+  // Re-trigger icon animation
+  const iconEl = document.getElementById('bird-popup-icon');
+  iconEl.style.animation = 'none';
+  iconEl.offsetHeight; // reflow
+  iconEl.style.animation = '';
+
+  // Auto-close after 5 seconds
+  clearTimeout(birdPopupTimer);
+  birdPopupTimer = setTimeout(closeBirdPopup, 5000);
+}
+
+/* ---- Close popup ---- */
+function closeBirdPopup() {
+  const popup = document.getElementById('bird-popup');
+  if (popup) popup.classList.remove('show');
+  if (activeBirdEl) {
+    activeBirdEl.classList.remove('clicked');
+    activeBirdEl = null;
+  }
+  clearTimeout(birdPopupTimer);
+}
+window.closeBirdPopup = closeBirdPopup;
+
+/* ---- Spawn scheduler ---- */
+function scheduleBird() {
+  spawnBird();
+  // Next bird in 8–15 seconds
+  const delay = 8000 + Math.random() * 7000;
+  setTimeout(scheduleBird, delay);
+}
+
+/* ---- Close popup on outside click ---- */
+document.addEventListener('click', (e) => {
+  const popup = document.getElementById('bird-popup');
+  if (popup && popup.classList.contains('show') && !popup.contains(e.target) && !e.target.closest('.flying-bird')) {
+    closeBirdPopup();
+  }
+});
+
+/* ---- Start birds after page load ---- */
+window.addEventListener('load', () => {
+  // First bird appears after 3 seconds
+  setTimeout(scheduleBird, 3000);
+});
+
