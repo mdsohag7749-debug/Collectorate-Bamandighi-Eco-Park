@@ -5,10 +5,7 @@
   "private": true,
   "scripts": {
     "build": "echo \"Static site build clean.\"",
-    "start": "serve . -l 3000",
-    "dev": "serve . -l 3000",
-    "server": "node server-backend.js",
-    "dev:all": "concurrently \"npm run server\" \"npm run dev\""
+    "dev": "serve . -l 3000"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
