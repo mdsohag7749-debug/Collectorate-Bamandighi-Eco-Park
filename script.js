@@ -140,6 +140,14 @@ const translations = {
     /* Mobile CTA */
     'cta-dir':     '🗺️ দিকনির্দেশনা',
     'cta-contact': '📨 যোগাযোগ',
+
+    /* Live Weather */
+    'weather-loc':           '📍 তারাগঞ্জ, রংপুর',
+    'weather-loading':       'আবহাওয়া লোড হচ্ছে...',
+    'weather-feels-label':   'অনুভূত হয়:',
+    'weather-hum-label':     'আর্দ্রতা:',
+    'weather-wind-label':    'বাতাস:',
+    'weather-updated-label': 'আপডেট:',
   },
   en: {
     /* Navbar */
@@ -279,6 +287,14 @@ const translations = {
     /* Mobile CTA */
     'cta-dir':     '🗺️ Get Directions',
     'cta-contact': '📨 Contact',
+
+    /* Live Weather */
+    'weather-loc':           '📍 Taraganj, Rangpur',
+    'weather-loading':       'Loading weather...',
+    'weather-feels-label':   'Feels like:',
+    'weather-hum-label':     'Humidity:',
+    'weather-wind-label':    'Wind:',
+    'weather-updated-label': 'Updated:',
   }
 };
 
@@ -339,6 +355,9 @@ function applyTranslations() {
     document.getElementById('fsubj3').textContent = 'অনুষ্ঠান আয়োজন';
     document.getElementById('fsubj4').textContent = 'অন্যান্য';
   }
+
+  /* Re-render weather widget in the selected language */
+  renderWeather();
 }
 
 /* =============================================
@@ -645,6 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupBlurUp();
   setupMarqueeA11y();
   setupScrollIndicator();
+  loadWeather();
 });
 
 /* =============================================
@@ -765,6 +785,83 @@ document.addEventListener('click', (e) => {
     document.getElementById('hamburger').classList.remove('active');
   }
 });
+
+/* =============================================
+   LIVE WEATHER WIDGET
+   ============================================= */
+const PARK_WEATHER = { lat: 25.79, lon: 89.26 }; // Taraganj, Rangpur (park location)
+let lastWeather = null;
+
+const WEATHER_CODES = {
+  0:  { emoji: '☀️', bn: 'পরিষ্কার আকাশ', en: 'Clear sky' },
+  1:  { emoji: '🌤️', bn: 'হালকা মেঘ', en: 'Mainly clear' },
+  2:  { emoji: '⛅', bn: 'আংশিক মেঘলা', en: 'Partly cloudy' },
+  3:  { emoji: '☁️', bn: 'মেঘলা', en: 'Overcast' },
+  45: { emoji: '🌫️', bn: 'কুয়াশাচ্ছন্ন', en: 'Foggy' },
+  48: { emoji: '🌫️', bn: 'কুয়াশাচ্ছন্ন', en: 'Foggy' },
+  51: { emoji: '🌦️', bn: 'হালকা বৃষ্টি', en: 'Light drizzle' },
+  53: { emoji: '🌦️', bn: 'গুঁড়ি গুঁড়ি বৃষ্টি', en: 'Drizzle' },
+  55: { emoji: '🌦️', bn: 'ভারী গুঁড়ি গুঁড়ি বৃষ্টি', en: 'Heavy drizzle' },
+  56: { emoji: '🌧️', bn: 'হালকা বৃষ্টি', en: 'Freezing drizzle' },
+  57: { emoji: '🌧️', bn: 'বৃষ্টি', en: 'Freezing drizzle' },
+  61: { emoji: '🌧️', bn: 'হালকা বৃষ্টি', en: 'Light rain' },
+  63: { emoji: '🌧️', bn: 'বৃষ্টি', en: 'Rain' },
+  65: { emoji: '🌧️', bn: 'ভারী বৃষ্টি', en: 'Heavy rain' },
+  66: { emoji: '🌧️', bn: 'বৃষ্টি', en: 'Freezing rain' },
+  67: { emoji: '🌧️', bn: 'ভারী বৃষ্টি', en: 'Freezing rain' },
+  71: { emoji: '❄️', bn: 'হালকা তুষারপাত', en: 'Light snow' },
+  73: { emoji: '❄️', bn: 'তুষারপাত', en: 'Snow' },
+  75: { emoji: '❄️', bn: 'ভারী তুষারপাত', en: 'Heavy snow' },
+  77: { emoji: '❄️', bn: 'তুষারকণা', en: 'Snow grains' },
+  80: { emoji: '🌦️', bn: 'বৃষ্টি', en: 'Rain showers' },
+  81: { emoji: '🌧️', bn: 'বৃষ্টি', en: 'Rain showers' },
+  82: { emoji: '⛈️', bn: 'ভারী বৃষ্টি', en: 'Violent showers' },
+  85: { emoji: '❄️', bn: 'তুষারপাত', en: 'Snow showers' },
+  86: { emoji: '❄️', bn: 'তুষারপাত', en: 'Snow showers' },
+  95: { emoji: '⛈️', bn: 'বজ্রপাতসহ বৃষ্টি', en: 'Thunderstorm' },
+  96: { emoji: '⛈️', bn: 'বজ্রপাতসহ বৃষ্টি', en: 'Thunderstorm with hail' },
+  99: { emoji: '⛈️', bn: 'ভারী বজ্রপাত', en: 'Severe thunderstorm' }
+};
+
+async function loadWeather() {
+  const widget = document.getElementById('weather-widget');
+  try {
+    const res = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${PARK_WEATHER.lat}&longitude=${PARK_WEATHER.lon}` +
+      '&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m' +
+      '&timezone=Asia%2FDhaka'
+    );
+    if (!res.ok) throw new Error('Weather request failed');
+    const data = await res.json();
+    lastWeather = data.current;
+    if (widget) widget.classList.remove('error');
+    renderWeather();
+  } catch (err) {
+    console.error('Weather error:', err);
+    if (widget) widget.classList.add('error');
+    const cond = document.getElementById('weather-cond');
+    if (cond) cond.textContent = (currentLang === 'en') ? 'Weather unavailable' : 'আবহাওয়া পাওয়া যায়নি';
+  }
+}
+
+function renderWeather() {
+  if (!lastWeather) return;
+  const t = translations[currentLang];
+  const info = WEATHER_CODES[lastWeather.weather_code] || { emoji: '🌡️', bn: 'আবহাওয়া', en: 'Weather' };
+  const isEn = currentLang === 'en';
+
+  document.getElementById('weather-icon').textContent = info.emoji;
+  document.getElementById('weather-temp').textContent = Math.round(lastWeather.temperature_2m) + '°C';
+  document.getElementById('weather-cond').textContent = isEn ? info.en : info.bn;
+  document.getElementById('weather-feels').textContent =
+    `🌡️ ${t['weather-feels-label']} ${Math.round(lastWeather.apparent_temperature)}°C`;
+  document.getElementById('weather-hum').textContent =
+    `💧 ${t['weather-hum-label']} ${lastWeather.relative_humidity_2m}%`;
+  document.getElementById('weather-wind').textContent =
+    `💨 ${t['weather-wind-label']} ${Math.round(lastWeather.wind_speed_10m)} km/h`;
+  document.getElementById('weather-updated').textContent =
+    `${t['weather-updated-label']} ${new Date().toLocaleTimeString(isEn ? 'en-US' : 'bn-BD', { hour: '2-digit', minute: '2-digit' })}`;
+}
 
 /* =============================================
    🐦 FLYING BIRDS SYSTEM

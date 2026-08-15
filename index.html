@@ -159,6 +159,28 @@
         </div>
       </div>
     </div>
+
+    <!-- ===== LIVE WEATHER WIDGET ===== -->
+    <div class="weather-widget" id="weather-widget" role="complementary" aria-label="Live weather at Taraganj, Rangpur">
+      <div class="weather-head">
+        <span class="weather-loc" id="weather-loc" data-i18n="weather-loc">📍 তারাগঞ্জ, রংপুর</span>
+        <button class="weather-refresh" onclick="loadWeather()" aria-label="আবহাওয়া রিফ্রেশ করুন">🔄</button>
+      </div>
+      <div class="weather-main">
+        <span class="weather-icon" id="weather-icon">⛅</span>
+        <div class="weather-temp-wrap">
+          <span class="weather-temp" id="weather-temp">--°C</span>
+          <span class="weather-cond" id="weather-cond" data-i18n="weather-loading">আবহাওয়া লোড হচ্ছে...</span>
+        </div>
+      </div>
+      <div class="weather-details">
+        <span id="weather-feels">🌡️ --</span>
+        <span id="weather-hum">💧 --</span>
+        <span id="weather-wind">💨 --</span>
+      </div>
+      <div class="weather-updated" id="weather-updated"></div>
+    </div>
+
     <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to About section">
       <div class="scroll-dot"></div>
     </div>
